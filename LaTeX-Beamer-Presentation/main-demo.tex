@@ -1,0 +1,81 @@
+\documentclass[algorithm, pgfplots]{styles/cuzbeamer_objnf}
+
+\usepackage[scale=2]{ccicons}
+\usepackage{listings, lstfiracode, color}
+
+\setsansfont{Consolas}
+\setmonofont{Fira Code}[Contextuals=Alternate]
+\setCJKmainfont{方正书宋_GBK}
+\setCJKfamilyfont{yasong}{方正特雅宋强国版_GBK}
+\newcommand{\yasong}{\CJKfamily{yasong}}
+
+\begin{document}
+    \ActivateVerbatimLigatures
+
+    \input{initialization.tex}
+    \maketitle
+
+    \section{\yasong\fontsize{12.0pt}{\baselineskip}\selectfont 使用AFL对LibModBus进行测试}
+
+    \begin{fragile}
+        \subsection{为什么改掉socket？}
+        \begin{block}{\yasong 为什么改掉socket？}
+            \begin{enumerate}
+                \item AFL等绝大多数Fuzz工具并不提供对TCP、UDP甚至自定义传输层协议的支持。
+                \item 建立socket、通过socket读取和写入数据的效率远远低于通过标准输入输出传递数据，这会严重影响Fuzz的速度。
+            \end{enumerate}
+        \end{block}
+        \begin{block}{\yasong 如何改掉socket？}
+            \begin{itemize}
+                \item 修改程序或库，使其不使用socket而是直接从标准输入接受数据、运行结果回显至标准输出。
+                \item 修改操作系统的socket实现，使调用socket函数的程序实际上不走socket而是走标准输入输出。
+            \end{itemize}
+        \end{block}
+    \end{fragile}
+
+    \begin{fragile}
+        \subsection{存在的问题？}
+        \begin{block}{\yasong 存在的问题？}
+            \begin{itemize}
+                \item 直接在程序中改掉socket会不会引入其他问题？这些程序问题会不会干扰Fuzz过程？
+                \item 不同的网络程序或库进行Fuzz，修改的方式不一样，对大量网络程序或库进行Fuzz时的时间消耗？
+                \item 难道直接改掉syscall？可行性？其他使用socket做进程间通信的程序怎么办？
+            \end{itemize}
+            \ \\
+            \begin{center}
+                \yasong 是否有两全其美的办法，既不修改源代码，又不误伤其他程序？
+            \end{center}
+        \end{block}
+    \end{fragile}
+
+    \begin{fragile}
+        \subsection{LD\_PRELOAD}
+        \begin{block}{LD\_PRELOAD}
+            \ \\
+            LD\_PRELOAD是Linux系统中的一个环境变量，允许定义在程序运行前优先加载的动态链接库。通过这个环境变量，我们可以有选择地载入{\yasong 包含相同函数}但{\yasong 函数的实现不同}的动态链接库，也可以\textcolor{red}{\yasong 替换掉功能正常的库函数}，以达到某些目的。
+        \end{block}
+        \begin{block}{Preeny}
+            \ \\
+            \textcolor{blue}{https://github.com/zardus/preeny} \\
+            是AFL官方推荐的项目，提供了许多互相独立的程序库。利用LD\_PRELOAD替换掉不同的系统函数（如alarm、fork、socket、rand等），使我们对程序的调试和修改更加方便。\textcolor{red}{\yasong 在Fuzz LibModBus时，我们主要用到其中的desock模块。}
+        \end{block}
+    \end{fragile}
+
+    \begin{fragile}
+        \subsection{编译Preeny}
+        \begin{block}{\yasong 编译Preeny}
+            \ \\
+            可以很方便的下载Preeny的源码并编译。由于desock库依赖logging库记录日志，因此这两个库都需要编译：
+            \begin{minted}{bash}
+git clone https://github.com/zardus/preeny.git
+cd preeny
+make
+            \end{minted}
+            随后即可通过LD\_PRELOAD载入编译生成的动态链接库（.so）文件，命令如下：
+            \begin{minted}{bash}
+LD_PRELOAD=../libmodbus-afl-dist/lib/libmodbus.so:../../Fuzzer/preeny-dist/desock.so:../../Fuzzer/preeny-dist/logging.so ./slave
+            \end{minted}
+            即可启动socket被重定向至标准输入输出的slave。
+        \end{block}
+    \end{fragile}
+\end{document}

@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+
+  service.rsshub:
+    image: diygod/rsshub
+    restart: always
+    ports:
+      - "1200:1200"
+    environment:
+      NODE_ENV: production
+      CACHE_TYPE: redis
+      REDIS_URL: 'redis://db.redis:6379/'
+      PUPPETEER_WS_ENDPOINT: 'ws://service.browserless:3000'
+      REQUEST_RETRY: 5
+      PIXIV_USERNAME: 
+      PIXIV_PASSWORD: 
+    depends_on:
+      - db.redis
+      - service.browserless
+
+  service.browserless:
+    image: browserless/chrome
+    restart: always
+
+  db.redis:
+    image: redis
+    restart: always
+    volumes:
+        - redis-data:/data
+
+volumes:
+  redis-data:

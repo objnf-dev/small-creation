@@ -1,0 +1,28 @@
+选区的默认压制参数如下：
+
+--demuxer y4m --threads 10 --preset veryslow --crf 17.5 --deblock -1:-1 --keyint 480 --min-keyint 1 --bframes 8 --b-adapt 2 --ref 8 --ipratio 1.35 --pbratio 1.25 --qcomp 0.8 --rc-lookahead 80 --aq-mode 3 --aq-strength 0.8 --merange 20 --me tesa --subme 10 --trellis 2 --psy-rd 0.70:0.15 --output "output-default.h264" --log-file "output-default.log"
+
+缩放视频时使用了推荐的vapoursynth中resize命名空间下的Spline36函数，只设定了resize后的宽、高及视频色彩空间。
+参数大体上与VCB的开启mbtree时的压制参数基本相同。
+
+由于使用的是veryslow preset和tesa的me，且限制了threads为10，因此压制时长在10min左右。rc-lookahead和merange均选择的是靠近推荐范围中心的值。
+
+首先拿默认参数压制了一份8bit和一份10bit成品，比较8bit和10bit，很容易发现8bit明暗交替处有明显的色带。
+
+调低aq-strength到0.2，体积、编码时间和画质均有所下降。能看出左侧云彩部分涂抹严重，云彩与头发间的边界出现问题。
+
+调高crf为21。crf设置的越高，压制速度越快，体积越小，质量越低，也会导致画面细节丢失。
+
+将aq-mode改为1进行压制。所用时间相似，体积减小。画质区别相对较小，平面区域欠码，部分细节有涂抹。
+
+尝试bstream 2，压制速度区别不明显，体积增加，且画面动态部分较少时画质有少许劣化。
+
+参数相同的情况下关闭mbtree，体积和压制时间均有大幅度增加。但是和开启mbtree的成品比较可以看出：开启mbtree后高动态部分（快速变化的云）欠码。
+
+qcomp降至0.2。压制时间相似，但体积大幅度减小。高动态部分某些线条存在错位的情况。
+
+ref提高至13。压制时间增加，体积变化不明显。画质区别不大。
+
+psy-rd调至0.70:0.70。压制时间增加，体积增大。
+
+psy-rd调至0.30:0.15。压制时间变化不大，体积减小。但是平面部分的过渡和细节没有psy为0.7:0.15时保留的好

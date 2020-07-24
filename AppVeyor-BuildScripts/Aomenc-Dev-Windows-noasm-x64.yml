@@ -1,0 +1,29 @@
+version: aom-windows-{branch}-{build}
+branches:
+  only:
+  - master
+image: Visual Studio 2017
+configuration: Release
+clone_folder: C:\aom\code
+before_build:
+- cmd: >-
+    md "C:\aom\aom_build"
+
+    cd ..\aom_build
+
+    cmake C:\aom\code -G "Visual Studio 15 2017" -DAOM_TARGET_CPU=generic -DCONFIG_ACCOUNTING=1 -DCONFIG_INTERNAL_STATS=1 -DCONFIG_COLLECT_PARTITION_STATS=1 -DCONFIG_COLLECT_COMPONENT_TIMING=1 -DENABLE_DOCS=OFF
+build:
+  project: ../aom_build/ALL_BUILD.vcxproj
+  verbosity: normal
+after_build:
+- cmd: >-
+    move "C:\aom\aom_build\Release" "C:\aom\code\"
+
+    cd C:\aom\code\Release
+
+    echo %date% %time% > BuildTime.txt
+test: off
+artifacts:
+- path: Release
+  name: aom-master-windows
+  type: WebDeployPackage
