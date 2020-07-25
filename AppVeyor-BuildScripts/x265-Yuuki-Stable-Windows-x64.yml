@@ -11,7 +11,7 @@ init:
 
     cd nasm
 
-    appveyor DownloadFile https://people.xiph.org/~tdaede/nasm-2.14.02-win64.zip -FileName nasm.zip
+    appveyor DownloadFile https://www.nasm.us/pub/nasm/releasebuilds/2.15.03/win64/nasm-2.15.03-win64.zip -FileName nasm.zip
 
     7z e -y nasm.zip
 
