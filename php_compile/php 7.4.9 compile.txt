@@ -1,0 +1,1 @@
+./configure --prefix=../php-7.4.9_bin --enable-fpm --enable-phpdbg --enable-debug --with-openssl --with-zlib --with-curl --enable-exif --enable-gd --with-jpeg --enable-mbstring --with-mysqli --with-ldap --with-readline --enable-shmop --enable-soap --enable-sockets --with-xmlrpc --with-xsl --enable-zend-test --enable-mysqlnd 
