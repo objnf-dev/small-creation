@@ -24,7 +24,7 @@ beancount==2.3.3
 beautifulsoup4==4.9.3
 bitarray==1.2.2
 bitstring==3.1.7
-bleach==3.2.1
+bleach==3.3.0
 blessings==1.7
 blind-watermark==0.0.6
 blinker==1.4
