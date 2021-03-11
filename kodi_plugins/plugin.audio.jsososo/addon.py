@@ -277,7 +277,7 @@ def one63tuijiangedan():
         gd['name'] = glist[index]['name']
         gd['thumb'] = glist[index]['picUrl']
         gd['url'] = 'https://music.163.com/#/playlist?id=' + str(glist[index]['id'])
-        gd['info'] = {'plot':zh(glist[index]['playCount']) + ' 播放 · ' + zh(glist[index]['trackCount']) + ' 首歌\n\n' + glist[index]['copywriter'].encode('utf-8')}
+        gd['info'] = {'plot':zh(glist[index]['playCount']) + ' 播放 · ' + zh(glist[index]['trackCount']) + ' 首歌\n\n' + glist[index]['copywriter']}
         gd['info']['cast'] = ['不知道是谁']
         gedans.append(gd)
     return gedans
