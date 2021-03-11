@@ -240,7 +240,7 @@ def one63gedan():
     for index in range(len(glist)):
         desc = ''
         if glist[index]['description']:
-            desc += glist[index]['description'].encode('utf-8')
+            desc += glist[index]['description']
         gd ={}
         gd['name'] = glist[index]['name']
         gd['thumb'] = glist[index]['coverImgUrl']
