@@ -155,7 +155,7 @@ tqdm==4.55.0
 traitlets==5.0.5
 Twisted==20.3.0
 unicorn==1.0.2
-urllib3==1.26.2
+urllib3==1.26.4
 varint==1.0.2
 w3lib==1.22.0
 wcwidth==0.2.5
