@@ -49,6 +49,9 @@ function writeParam(notegroup, param, start, stop, delta, sampleBlick, ratio)
     local stopPoint = param:get(stop)
     local j = start
     for k = 1, #delta do
+        if j > stop then
+            break
+        end
         local point = param:get(j)
         point = point + delta[k] * ratio
         param:add(j, point)
@@ -86,7 +89,7 @@ end
 function main()
     -- Form
     local form = {
-        title = 'SineVibrato Alpha 1.1',
+        title = 'SineVibrato Alpha 1.2',
         message = 'SineVibrato ported to Synthesizer V\nObjectNotFound <xml@live.com>',
         buttons = 'OkCancel',
         widgets = {
