@@ -54,8 +54,8 @@ function writeParam(notegroup, param, start, stop, delta, sampleBlick, ratio)
         param:add(j, point)
         j = j + sampleBlick
     end
-    param:add(start, startPoint)
-    param:add(stop, stopPoint)
+    param:add(start - sampleBlick, startPoint)
+    param:add(stop + sampleBlick, stopPoint)
 end
 
 -- 拿到所有已选中的音符时间范围，单位是b
@@ -64,7 +64,7 @@ function getNoteRange()
     local notes = SV:getMainEditor():getSelection():getSelectedNotes()
     -- 没有就直接退出
     if #notes == 0 then
-        return
+        return {}
     end
     -- 按时间先后顺序排序
     table.sort( notes, function (A, B)
@@ -74,6 +74,10 @@ function getNoteRange()
     local range = {}
     for i = 1, #notes do
         range[#range+1] = {notes[i]:getOnset(), notes[i]:getEnd()}
+        -- 在这里清除颤音参数
+        notes[i]:setAttributes({
+            dF0Vbr = 0
+        })
     end
     return range
 end
@@ -82,7 +86,7 @@ end
 function main()
     -- Form
     local form = {
-        title = 'SineVibrato',
+        title = 'SineVibrato Alpha 1.1',
         message = 'SineVibrato ported to Synthesizer V\nObjectNotFound <xml@live.com>',
         buttons = 'OkCancel',
         widgets = {
