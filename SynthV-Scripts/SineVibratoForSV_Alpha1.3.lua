@@ -47,18 +47,30 @@ function writeParam(notegroup, param, start, stop, delta, sampleBlick, ratio)
     local param = notegroup:getParameter(param)
     local startPoint = param:get(start)
     local stopPoint = param:get(stop)
+    -- 保存原来的点值，避免平滑
+    local origin = {}
     local j = start
     for k = 1, #delta do
         if j > stop then
             break
         end
-        local point = param:get(j)
+        origin[k] = param:get(j)
+        j = j + sampleBlick
+    end
+    
+    j = start
+    for k = 1, #delta do
+        if j > stop then
+            break
+        end
+        local point = origin[k]
+        
         point = point + delta[k] * ratio
         param:add(j, point)
         j = j + sampleBlick
     end
-    param:add(start - sampleBlick, startPoint)
-    param:add(stop + sampleBlick, stopPoint)
+    param:add(start, startPoint)
+    param:add(stop, stopPoint)
 end
 
 -- 拿到所有已选中的音符时间范围，单位是b
@@ -189,19 +201,19 @@ function main()
             local delta = calculateParam(result.answers.freq, result.answers.depth, stop - start,
                 leftBlick, rightBlick, sampleBlick, blickPerSec)
             if result.answers.pitch then
-                writeParam(notegroup, 'pitchDelta', start, stop, delta, sampleBlick, 15)
+                writeParam(notegroup, 'pitchDelta', start, stop, delta, sampleBlick, 45)
             end
             if result.answers.tension then
-                writeParam(notegroup, 'tension', start, stop, delta, sampleBlick, 0.05)
+                writeParam(notegroup, 'tension', start, stop, delta, sampleBlick, 0.15)
             end
             if result.answers.dynamics then
-                writeParam(notegroup, 'loudness', start, stop, delta, sampleBlick, 0.6)
+                writeParam(notegroup, 'loudness', start, stop, delta, sampleBlick, 1.8)
             end
             if result.answers.breath then
-                writeParam(notegroup, 'breathiness', start, stop, delta, sampleBlick, 0.05)
+                writeParam(notegroup, 'breathiness', start, stop, delta, sampleBlick, 0.15)
             end
             if result.answers.gender then
-                writeParam(notegroup, 'gender', start, stop, delta, sampleBlick, 0.05)
+                writeParam(notegroup, 'gender', start, stop, delta, sampleBlick, 0.15)
             end
         end
     end
