@@ -4,14 +4,49 @@
 免费使用，不得以任何方式进行销售，包括独立销售和捆绑销售等。
 --]]
 
+--[[
+更新日志(Alpha v1.3起)：
+-- Alpha v1.4
+1.中英双语界面支持。
+2.随着1.3的修复，发声参数现在也可正弦颤抖。
+3.增加选项，可选择是否抹去SynthV内置的颤音设置。
+-- Alpha v1.3:
+1.修正了平滑带来的参数设置问题。
+2.加入更新日志。
+--]]
+
+
 -- 插件基本信息
+SCRIPT_TITLE = 'SineVibrato Alpha v1.4'
+SCRIPT_INFO = 'SineVibrato ported to Synthesizer V\nObjectNotFound <xml@live.com>'
+
 function getClientInfo()
     return {
-        name = 'SineVibrato',
+        name = SV:T(SCRIPT_TITLE),
         author = 'ObjectNotFound <xml@live.com>',
         versionNumber = 1,
         minEditorVersion = 65540
     }
+end
+
+function getTranslations(langCode)
+    if langCode == 'zh-cn' then
+        return {
+            {SCRIPT_TITLE, '参数颤音 Alpha v1.4'},
+            {SCRIPT_INFO, '适用于Synthesizer V的参数颤音插件\nObjectNotFound <xml@live.com>'},
+            {'Pitch Deviation', '音高偏差'},
+            {'Tension', '张力'},
+            {'Loudness', '响度'},
+            {'Breathiness', '气声'},
+            {'Gender', '性别'},
+            {'Voicing', '发声'},
+            {'Freq', '频率'},
+            {'Depth', '深度'},
+            {'Left Fade In', '左侧淡入'},
+            {'Right Fade Out', '右侧淡出'},
+            {'Erase Vibrato Settings in \'Note Properties\' Panel', '清除“音符属性”面板中的颤音设置'}
+        }
+    end
 end
 
 -- 计算参数数值
@@ -74,7 +109,7 @@ function writeParam(notegroup, param, start, stop, delta, sampleBlick, ratio)
 end
 
 -- 拿到所有已选中的音符时间范围，单位是b
-function getNoteRange()
+function getNoteRange(erase)
     -- 拿到音符
     local notes = SV:getMainEditor():getSelection():getSelectedNotes()
     -- 没有就直接退出
@@ -90,9 +125,11 @@ function getNoteRange()
     for i = 1, #notes do
         range[#range+1] = {notes[i]:getOnset(), notes[i]:getEnd()}
         -- 在这里清除颤音参数
-        notes[i]:setAttributes({
-            dF0Vbr = 0
-        })
+        if erase then
+            notes[i]:setAttributes({
+                dF0Vbr = 0
+            })
+        end
     end
     return range
 end
@@ -101,44 +138,50 @@ end
 function main()
     -- Form
     local form = {
-        title = 'SineVibrato Alpha 1.2',
-        message = 'SineVibrato ported to Synthesizer V\nObjectNotFound <xml@live.com>',
+        title = SV:T(SCRIPT_TITLE),
+        message = SV:T(SCRIPT_INFO),
         buttons = 'OkCancel',
         widgets = {
             {
                 name = 'pitch',
                 type = 'CheckBox',
-                text = '音高偏差',
+                text = SV:T('Pitch Deviation'),
                 default = false
             },
             {
                 name = 'tension',
                 type = 'CheckBox',
-                text = '张力',
+                text = SV:T('Tension'),
                 default = false
             },
             {
                 name = 'dynamics',
                 type = 'CheckBox',
-                text = '响度',
+                text = SV:T('Loudness'),
                 default = false
             },
             {
                 name = 'breath',
                 type = 'CheckBox',
-                text = '气声',
+                text = SV:T('Breathiness'),
                 default = false
             },
             {
                 name = 'gender',
                 type = 'CheckBox',
-                text = '性别',
+                text = SV:T('Gender'),
+                default = false
+            },
+            {
+                name = 'voice',
+                type = 'CheckBox',
+                text = SV:T('Voicing'),
                 default = false
             },
             {
                 name = 'freq',
                 type = 'Slider',
-                label = '频率',
+                label = SV:T('Freq'),
                 format = '%1.2f',
                 minValue = 0.01,
                 maxValue = 20,
@@ -149,7 +192,7 @@ function main()
                 -- 实际最高可1200音分（12个半音，即一个八度）
                 name = 'depth',
                 type = 'Slider',
-                label = '深度',
+                label = SV:T('Depth'),
                 format = '%1.2f',
                 minValue = 0.01,
                 maxValue = 5,
@@ -159,7 +202,7 @@ function main()
             {
                 name = 'left',
                 type = 'Slider',
-                label = '左侧淡入',
+                label = SV:T('Left Fade In'),
                 format = '%1.2f',
                 minValue = 0,
                 maxValue = 1.5,
@@ -169,12 +212,18 @@ function main()
             {
                 name = 'right',
                 type = 'Slider',
-                label = '右侧淡出',
+                label = SV:T('Right Fade Out'),
                 format = '%1.2f',
                 minValue = 0,
                 maxValue = 1.5,
                 interval = 0.01,
                 default = 0.25
+            },
+            {
+                name = 'defaultErase',
+                type = 'CheckBox',
+                text = SV:T('Erase Vibrato Settings in \'Note Properties\' Panel'),
+                default = true
             }
         }
     }
@@ -185,7 +234,8 @@ function main()
         local sampleBlick = math.floor(SV.QUARTER / 64)
         -- 获取音符
         local notegroup = SV:getMainEditor():getCurrentGroup():getTarget()
-        local range = getNoteRange()
+        local erase = result.answers.defaultErase
+        local range = getNoteRange(erase)
         -- 遍历音符
         for i=1, #range do
             local start = range[i][1]
@@ -214,6 +264,9 @@ function main()
             end
             if result.answers.gender then
                 writeParam(notegroup, 'gender', start, stop, delta, sampleBlick, 0.15)
+            end
+            if result.answers.voice then
+                writeParam(notegroup, 'voicing', start, stop, delta, sampleBlick, 0.10)
             end
         end
     end
