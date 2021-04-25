@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+
+  nginx:
+    restart: always
+    image: nginx:alpine
+    ports: 
+      - "80:80"
+    volumes:
+      - "/root/blog:/usr/share/nginx/html:ro"
+
+  cloudreve:
+    image: xavierniu/cloudreve:latest
+    restart: always
+    volumes:
+      - "/root/cloudreve/uploads:/cloudreve/uploads"
+      - "/root/cloudreve/conf.ini:/cloudreve/conf.ini"
+      - "/root/cloudreve/cloudreve.db:/cloudreve/cloudreve.db"
+    ports:
+      - "82:5212"
+    environment:
+      TZ: Asia/Shanghai
+
+  nps:
+    image: ffdfgdfg/nps:latest
+    restart: always
+    volumes:
+      - "/root/nps:/conf"
+    network_mode: host
+
+  linkding:
+    image: sissbruecker/linkding:latest
+    restart: always
+    volumes:
+      - "/root/linkding:/etc/linkding/data"
+    ports:
+      - "9090:9090"
+
+  trilium:
+    image: zadam/trilium:latest
+    restart: always
+    volumes:
+      - "~/trilium-data:/root/trilium"
+    ports:
+      - "9091:8080"
