@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+
+  nginx:
+    restart: always
+    image: nginx:alpine
+    ports: 
+      - "40801:80"
+    volumes:
+      - "/root/nginx.conf:/etc/nginx/nginx.conf:ro"
+
+  nps:
+    image: ffdfgdfg/nps:latest
+    restart: always
+    volumes:
+      - "/root/nps:/conf"
+    network_mode: host
