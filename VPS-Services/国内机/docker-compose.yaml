@@ -36,11 +36,3 @@ services:
       - "/root/linkding:/etc/linkding/data"
     ports:
       - "9090:9090"
-
-  trilium:
-    image: zadam/trilium:latest
-    restart: always
-    volumes:
-      - "~/trilium-data:/root/trilium"
-    ports:
-      - "9091:8080"

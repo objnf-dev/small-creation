@@ -1,0 +1,50 @@
+version: "3"
+
+services:
+  freshrss:
+    image: freshrss/freshrss
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - /root/rssreader:/var/www/FreshRSS/data
+    environment:
+      - CRON_MIN=*/20
+      - TZ=Asia/Shanghai
+
+  rsshub:
+    image: diygod/rsshub
+    restart: always
+    ports:
+    - 1200:1200
+    environment:
+      NODE_ENV: production
+      CACHE_TYPE: redis
+      REDIS_URL: redis://db.redis:6379/
+      PUPPETEER_WS_ENDPOINT: ws://service.browserless:3000
+      REQUEST_RETRY: 5
+      PIXIV_REFRESHTOKEN: 
+    depends_on:
+    - redis
+    - browserless
+  
+  browserless:
+    image: browserless/chrome
+    restart: always
+  
+  redis:
+    image: redis
+    restart: always
+    volumes:
+    - redis-data:/data
+    
+  trilium:
+    image: zadam/trilium:latest
+    restart: always
+    volumes:
+      - /root/trilium:/home/node/trilium-data
+    ports:
+      - "81:8080"
+
+volumes:
+  redis-data:
