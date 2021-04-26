@@ -17,7 +17,7 @@
 
 
 -- 插件基本信息
-SCRIPT_TITLE = 'SineVibrato Alpha v1.4'
+SCRIPT_TITLE = 'SineVibrato Beta v1.5'
 SCRIPT_INFO = 'SineVibrato ported to Synthesizer V\nObjectNotFound <xml@live.com>'
 
 function getClientInfo()
@@ -32,19 +32,20 @@ end
 function getTranslations(langCode)
     if langCode == 'zh-cn' then
         return {
-            {SCRIPT_TITLE, '参数颤音 Alpha v1.4'},
+            {SCRIPT_TITLE, '参数颤音 Beta v1.5'},
             {SCRIPT_INFO, '适用于Synthesizer V的参数颤音插件\nObjectNotFound <xml@live.com>'},
+            {'Number of Control points (per quarter note)', '控制点数量（个每四分音符）'},
             {'Pitch Deviation', '音高偏差'},
             {'Tension', '张力'},
             {'Loudness', '响度'},
             {'Breathiness', '气声'},
             {'Gender', '性别'},
             {'Voicing', '发声'},
-            {'Freq', '频率'},
-            {'Depth', '深度'},
-            {'Left Fade In', '左侧淡入'},
-            {'Right Fade Out', '右侧淡出'},
-            {'Erase Vibrato Settings in \'Note Properties\' Panel', '清除“音符属性”面板中的颤音设置'}
+            {'Freq (Hz)', '频率（赫兹）'},
+            {'Depth (Semitone)', '深度（半音）'},
+            {'Left Fade In (Second)', '左侧淡入（秒）'},
+            {'Right Fade Out (Second)', '右侧淡出（秒）'},
+            {'Zero out Vibrato Depth in \'Note Properties\' panel', '将“音符属性”面板中的颤音深度置0'}
         }
     end
 end
@@ -89,7 +90,10 @@ function writeParam(notegroup, param, start, stop, delta, sampleBlick, ratio)
         if j > stop then
             break
         end
+        
+        param:remove(j - sampleBlick, j)
         origin[k] = param:get(j)
+        
         j = j + sampleBlick
     end
     
@@ -98,10 +102,11 @@ function writeParam(notegroup, param, start, stop, delta, sampleBlick, ratio)
         if j > stop then
             break
         end
-        local point = origin[k]
         
+        local point = origin[k]
         point = point + delta[k] * ratio
         param:add(j, point)
+        
         j = j + sampleBlick
     end
     param:add(start, startPoint)
@@ -109,7 +114,7 @@ function writeParam(notegroup, param, start, stop, delta, sampleBlick, ratio)
 end
 
 -- 拿到所有已选中的音符时间范围，单位是b
-function getNoteRange(erase)
+function getNoteRange(eraseDepth)
     -- 拿到音符
     local notes = SV:getMainEditor():getSelection():getSelectedNotes()
     -- 没有就直接退出
@@ -125,7 +130,7 @@ function getNoteRange(erase)
     for i = 1, #notes do
         range[#range+1] = {notes[i]:getOnset(), notes[i]:getEnd()}
         -- 在这里清除颤音参数
-        if erase then
+        if eraseDepth then
             notes[i]:setAttributes({
                 dF0Vbr = 0
             })
@@ -142,6 +147,13 @@ function main()
         message = SV:T(SCRIPT_INFO),
         buttons = 'OkCancel',
         widgets = {
+            {
+                name = 'sampleRate',
+                type = 'ComboBox',
+                label = SV:T('Number of Control points (per quarter note)'),
+                choices = {'32', '64', '128', '256'},
+                default = 1
+            },
             {
                 name = 'pitch',
                 type = 'CheckBox',
@@ -181,7 +193,7 @@ function main()
             {
                 name = 'freq',
                 type = 'Slider',
-                label = SV:T('Freq'),
+                label = SV:T('Freq (Hz)'),
                 format = '%1.2f',
                 minValue = 0.01,
                 maxValue = 20,
@@ -192,7 +204,7 @@ function main()
                 -- 实际最高可1200音分（12个半音，即一个八度）
                 name = 'depth',
                 type = 'Slider',
-                label = SV:T('Depth'),
+                label = SV:T('Depth (Semitone)'),
                 format = '%1.2f',
                 minValue = 0.01,
                 maxValue = 5,
@@ -202,7 +214,7 @@ function main()
             {
                 name = 'left',
                 type = 'Slider',
-                label = SV:T('Left Fade In'),
+                label = SV:T('Left Fade In (Second)'),
                 format = '%1.2f',
                 minValue = 0,
                 maxValue = 1.5,
@@ -212,7 +224,7 @@ function main()
             {
                 name = 'right',
                 type = 'Slider',
-                label = SV:T('Right Fade Out'),
+                label = SV:T('Right Fade Out (Second)'),
                 format = '%1.2f',
                 minValue = 0,
                 maxValue = 1.5,
@@ -222,7 +234,7 @@ function main()
             {
                 name = 'defaultErase',
                 type = 'CheckBox',
-                text = SV:T('Erase Vibrato Settings in \'Note Properties\' Panel'),
+                text = SV:T('Zero out Vibrato Depth in \'Note Properties\' panel'),
                 default = true
             }
         }
@@ -231,7 +243,7 @@ function main()
     local result = SV:showCustomDialog(form)
     if result.status then
         -- 计算点间隔
-        local sampleBlick = math.floor(SV.QUARTER / 64)
+        local sampleBlick = math.floor(SV.QUARTER / (32 + 32 * (2 ^ result.answers.sampleRate - 1)))
         -- 获取音符
         local notegroup = SV:getMainEditor():getCurrentGroup():getTarget()
         local erase = result.answers.defaultErase
@@ -250,6 +262,7 @@ function main()
         
             local delta = calculateParam(result.answers.freq, result.answers.depth, stop - start,
                 leftBlick, rightBlick, sampleBlick, blickPerSec)
+            
             if result.answers.pitch then
                 writeParam(notegroup, 'pitchDelta', start, stop, delta, sampleBlick, 45)
             end
