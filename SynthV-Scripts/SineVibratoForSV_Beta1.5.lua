@@ -45,7 +45,7 @@ function getTranslations(langCode)
             {'Depth (Semitone)', '深度（半音）'},
             {'Left Fade In (Second)', '左侧淡入（秒）'},
             {'Right Fade Out (Second)', '右侧淡出（秒）'},
-            {'Simplify parameter curve', '平滑参数曲线'},
+            {'Parameter Curve Smoothness', '参数曲线平滑度'},
             {'Zero out Vibrato Depth in \'Note Properties\' panel', '将“音符属性”面板中的颤音深度置0'}
         }
     end
@@ -236,7 +236,7 @@ function main()
             {
                 name = 'simplify',
                 type = 'Slider',
-                label = SV:T('Simplify parameter curve'),
+                label = SV:T('Parameter Curve Smoothness'),
                 format = '%1.3f',
                 minValue = 0,
                 maxValue = 0.05,
