@@ -45,6 +45,7 @@ function getTranslations(langCode)
             {'Depth (Semitone)', '深度（半音）'},
             {'Left Fade In (Second)', '左侧淡入（秒）'},
             {'Right Fade Out (Second)', '右侧淡出（秒）'},
+            {'Simplify parameter curve', '平滑参数曲线'},
             {'Zero out Vibrato Depth in \'Note Properties\' panel', '将“音符属性”面板中的颤音深度置0'}
         }
     end
@@ -79,7 +80,7 @@ function calculateParam(freq, depth, length, left, right, sampleBlick, blickPerS
     return delta
 end
 
-function writeParam(notegroup, param, start, stop, delta, sampleBlick, ratio)
+function writeParam(notegroup, param, start, stop, delta, sampleBlick, ratio, simplifyValue)
     local param = notegroup:getParameter(param)
     local startPoint = param:get(start)
     local stopPoint = param:get(stop)
@@ -111,6 +112,7 @@ function writeParam(notegroup, param, start, stop, delta, sampleBlick, ratio)
     end
     param:add(start, startPoint)
     param:add(stop, stopPoint)
+    param:simplify(startPoint, stopPoint, simplifyValue)
 end
 
 -- 拿到所有已选中的音符时间范围，单位是b
@@ -232,6 +234,16 @@ function main()
                 default = 0.25
             },
             {
+                name = 'simplify',
+                type = 'Slider',
+                label = SV:T('Simplify parameter curve'),
+                format = '%1.3f',
+                minValue = 0,
+                maxValue = 0.05,
+                interval = 0.002,
+                default = 0.002
+            },
+            {
                 name = 'defaultErase',
                 type = 'CheckBox',
                 text = SV:T('Zero out Vibrato Depth in \'Note Properties\' panel'),
@@ -263,23 +275,25 @@ function main()
             local delta = calculateParam(result.answers.freq, result.answers.depth, stop - start,
                 leftBlick, rightBlick, sampleBlick, blickPerSec)
             
+            local simplifyValue = result.answers.simplify
+            
             if result.answers.pitch then
-                writeParam(notegroup, 'pitchDelta', start, stop, delta, sampleBlick, 45)
+                writeParam(notegroup, 'pitchDelta', start, stop, delta, sampleBlick, 45, simplifyValue)
             end
             if result.answers.tension then
-                writeParam(notegroup, 'tension', start, stop, delta, sampleBlick, 0.15)
+                writeParam(notegroup, 'tension', start, stop, delta, sampleBlick, 0.15, simplifyValue)
             end
             if result.answers.dynamics then
-                writeParam(notegroup, 'loudness', start, stop, delta, sampleBlick, 1.8)
+                writeParam(notegroup, 'loudness', start, stop, delta, sampleBlick, 1.8, simplifyValue)
             end
             if result.answers.breath then
-                writeParam(notegroup, 'breathiness', start, stop, delta, sampleBlick, 0.15)
+                writeParam(notegroup, 'breathiness', start, stop, delta, sampleBlick, 0.15, simplifyValue)
             end
             if result.answers.gender then
-                writeParam(notegroup, 'gender', start, stop, delta, sampleBlick, 0.15)
+                writeParam(notegroup, 'gender', start, stop, delta, sampleBlick, 0.15, simplifyValue)
             end
             if result.answers.voice then
-                writeParam(notegroup, 'voicing', start, stop, delta, sampleBlick, 0.10)
+                writeParam(notegroup, 'voicing', start, stop, delta, sampleBlick, 0.10, simplifyValue)
             end
         end
     end
