@@ -466,7 +466,7 @@ unicorn==1.0.2rc3
 Unidecode==1.2.0
 uritemplate==3.0.1
 url-normalize==1.4.3
-urllib3==1.25.11
+urllib3==1.26.5
 urwid==2.1.2
 uvloop==0.15.2
 venusian==3.0.0
