@@ -1,0 +1,11 @@
+clc;
+clear;
+b = [1, -1];
+a = [1, 3 ,2];
+zr = roots(b);
+pr = roots(a);
+plot(real(zr), imag(zr), 'go', real(pr), imag(pr), 'mx', 'markersize', 12, 'linewidth', 2);
+grid;
+legend('Áãµã', '¼«µã');
+figure(2);
+zplane(b, a);

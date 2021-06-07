@@ -1,0 +1,28 @@
+x264 [info]: 1280x720p 0:0 @ 24000/1001 fps (cfr)
+x264 [info]: color matrix: undef
+x264 [info]: using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX AVX2 FMA3 LZCNT BMI2
+x264 [info]: profile High, level 4.0
+x264 [info]: cabac=1 ref=8 deblock=1:-1:-1 analyse=0x3:0x133 me=tesa subme=10 psy=1 fade_compensate=0.00 psy_rd=0.70:0.15 mixed_ref=1 me_range=20 chroma_me=1 trellis=2 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-3 threads=10 lookahead_threads=1 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 fgo=0 bframes=8 b_pyramid=2 b_adapt=2 b_bias=0 direct=3 weightb=1 open_gop=0 weightp=2 keyint=480 keyint_min=1 scenecut=40 intra_refresh=0 rc_lookahead=80 rc=crf mbtree=1 crf=18.0000 qcomp=0.80 qpmin=0:0:0 qpmax=69:69:69 qpstep=4 ip_ratio=1.35 aq=3:0.80 aq-sensitivity=10.00 aq-factor=1.00:1.00:1.00 aq2=0 aq3=0
+x264 [info]: started at Tue Feb 12 14:57:21 2019
+x264 [info]: frame I:151   Avg QP:11.88  size:111108
+x264 [info]: frame P:2046  Avg QP:16.48  size: 19432
+x264 [info]: frame B:6611  Avg QP:16.46  size:  3961
+x264 [info]: consecutive B-frames:  4.7%  4.5%  7.7% 25.4% 13.4% 18.1%  9.5%  9.7%  6.9%
+x264 [info]: mb I  I16..4: 16.7% 50.8% 32.5%
+x264 [info]: mb P  I16..4:  2.9%  9.1%  4.1%  P16..4: 25.9%  9.3%  7.2%  0.5%  0.2%    skip:40.8%
+x264 [info]: mb B  I16..4:  0.3%  0.6%  0.3%  B16..8: 17.7%  2.5%  0.7%  direct: 1.8%  skip:76.2%  L0:44.9% L1:50.1% BI: 5.1%
+x264 [info]: 8x8 transform intra:54.5% inter:56.3%
+x264 [info]: direct mvs  spatial:99.2% temporal:0.8%
+x264 [info]: coded y,uvDC,uvAC intra: 63.5% 61.0% 44.8% inter: 4.7% 4.9% 1.2%
+x264 [info]: i16 v,h,dc,p: 32% 16% 10% 43%
+x264 [info]: i8 v,h,dc,ddl,ddr,vr,hd,vl,hu: 14% 14% 18%  7%  8%  8% 10%  8% 13%
+x264 [info]: i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 16% 12% 12%  9% 12% 10% 10%  8% 11%
+x264 [info]: i8c dc,h,v,p: 44% 27% 16% 12%
+x264 [info]: Weighted P-Frames: Y:5.6% UV:4.3%
+x264 [info]: ref P L0: 56.4%  7.0% 16.7%  6.6%  4.5%  3.7%  2.8%  1.9%  0.3%  0.0%
+x264 [info]: ref B L0: 74.6% 12.6%  6.5%  2.7%  1.9%  1.1%  0.6%
+x264 [info]: ref B L1: 92.6%  7.4%
+x264 [info]: kb/s:1801.37
+x264 [info]: encoded 8808 frames, 13.39 fps, 1801.37 kb/s, 78.89 MB
+x264 [info]: ended at Tue Feb 12 15:08:19 2019
+x264 [info]: encoding duration 0:10:58

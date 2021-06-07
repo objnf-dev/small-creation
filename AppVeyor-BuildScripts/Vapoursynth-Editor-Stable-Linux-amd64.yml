@@ -1,0 +1,35 @@
+version: VSEdit-Linux-{build}
+image: Ubuntu1804
+clone_folder: /home/appveyor/projects
+init:
+- sh: >-
+    sudo apt-get update
+
+    sudo apt-get install -y qt5-default libqt5websockets5-dev nasm
+clone_script:
+- sh: >-
+    git clone -b r19 https://zhouweitong3@bitbucket.org/mystery_keeper/vapoursynth-editor.git /home/appveyor/projects/vsedit
+
+    git clone https://github.com/vapoursynth/vapoursynth.git /home/appveyor/projects/vapoursynth
+install:
+- sh: >-
+    sudo mkdir -p /usr/include/vapoursynth
+
+    sudo cp -rf /home/appveyor/projects/vapoursynth/include/* /usr/include/vapoursynth
+
+    cd vsedit/pro
+
+    qmake -norecursive pro.pro CONFIG+=release
+build_script:
+- sh: >-
+    make
+
+    cd ../build
+
+    date > BuildTime
+test: off
+artifacts:
+- path: vsedit\build
+  name: VSEdit-Linux-amd64
+  type: WebDeployPackage
+deploy: off

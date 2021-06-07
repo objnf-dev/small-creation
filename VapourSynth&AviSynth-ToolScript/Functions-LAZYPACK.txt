@@ -1,0 +1,1672 @@
+Key: autocrop.infiistgott.info
+    Namespace: acrop
+    Identifier: autocrop.infiistgott.info
+    Name: VapourSynth Auto Crop
+  - Functions: 
+      - Function Name: AutoCrop
+        Function Definition: clip:clip;range:int:opt;top:int:opt;bottom:int:opt;left:int:opt;right:int:opt;color:int[]:opt;color_second:int[]:opt
+      - Function Name: CropProp
+        Function Definition: clip:clip
+      - Function Name: CropValues
+        Function Definition: clip:clip;range:int:opt;top:int:opt;bottom:int:opt;left:int:opt;right:int:opt;color:int[]:opt;color_second:int[]:opt
+
+
+
+Key: chikuzen.does.not.have.his.own.domain.raws
+    Namespace: raws
+    Identifier: chikuzen.does.not.have.his.own.domain.raws
+    Name: Raw-format file Reader for VapourSynth 0.3.5
+  - Functions: 
+      - Function Name: Source
+        Function Definition: source:data;width:int:opt;height:int:opt;fpsnum:int:opt;fpsden:int:opt;sarnum:int:opt;sarden:int:opt;src_fmt:data:opt;off_header:int:opt;off_frame:int:opt;rowbytes_align:int:opt
+
+
+
+Key: in.7086.delogo
+    Namespace: delogo
+    Identifier: in.7086.delogo
+    Name: VapourSynth Delogo Filter v005a.0.4
+  - Functions: 
+      - Function Name: AddLogo
+        Function Definition: clip:clip;logofile:data;logoname:data:opt;pos_x:int:opt;pos_y:int:opt;depth:int:opt;yc_y:int:opt;yc_u:int:opt;yc_v:int:opt;start:int:opt;end:int:opt;fadein:int:opt;fadeout:int:opt;cutoff:int:opt;
+      - Function Name: EraseLogo
+        Function Definition: clip:clip;logofile:data;logoname:data:opt;pos_x:int:opt;pos_y:int:opt;depth:int:opt;yc_y:int:opt;yc_u:int:opt;yc_v:int:opt;start:int:opt;end:int:opt;fadein:int:opt;fadeout:int:opt;cutoff:int:opt;
+
+
+
+Key: in.7086.it
+    Namespace: it
+    Identifier: in.7086.it
+    Name: VapourSynth IVTC Filter v0103.1.1
+  - Functions: 
+      - Function Name: IT
+        Function Definition: clip:clip;fps:int:opt;threshold:int:opt;pthreshold:int:opt;
+
+
+
+Key: in.trans.vcm
+    Namespace: trans
+    Identifier: in.trans.vcm
+    Name: VapourSynth transition plugin
+  - Functions: 
+      - Function Name: Accord
+        Function Definition: clip:clip;clipb:clip;overlap:float:opt;dir:int:opt;twin:int:opt;open:int:opt;
+      - Function Name: Bubbles
+        Function Definition: clip:clip;clipb:clip;overlap:float:opt;static:int:opt;
+      - Function Name: Central
+        Function Definition: clip:clip;clipb:clip;overlap:float:opt;nturns:int:opt;emerge:int:opt;resize:int:opt;
+      - Function Name: Crumple
+        Function Definition: clip:clip;clipb:clip;overlap:float:opt;crumple:int:opt;emerge:int:opt;
+      - Function Name: Disco
+        Function Definition: clip:clip;clipb:clip;overlap:float:opt;emerge:int:opt;rad:int:opt;nturns:int:opt;
+      - Function Name: Door
+        Function Definition: clip:clip;clipb:clip;overlap:float:opt;open:int:opt;vert:int:opt;
+      - Function Name: FlipPage
+        Function Definition: clip:clip;clipb:clip;overlap:float:opt;left:int:opt;
+      - Function Name: Funnel
+        Function Definition: clip:clip;clipb:clip;overlap:float:opt;dir:int:opt;
+      - Function Name: Paint
+        Function Definition: clip:clip;clipb:clip;overlap:float:opt;style:int:opt;
+      - Function Name: Push
+        Function Definition: clip:clip;clipb:clip;overlap:float:opt;dir:int:opt;
+      - Function Name: Ripple
+        Function Definition: clip:clip;clipb:clip;overlap:float:opt;origin:int:opt;amp:int:opt;wlength:int:opt;merge:int:opt:
+      - Function Name: Roll
+        Function Definition: clip:clip;clipb:clip;overlap:float:opt;dir:int:opt;rollin:int:opt;
+      - Function Name: Scratch
+        Function Definition: clip:clip;clipb:clip;overlap:float:opt;style:int:opt;
+      - Function Name: Shuffle
+        Function Definition: clip:clip;clipb:clip;overlap:float:opt;dir:int:opt;
+      - Function Name: Slide
+        Function Definition: clip:clip;clipb:clip;overlap:float:opt;dir:int:opt;slidein:int:opt;
+      - Function Name: Sprite
+        Function Definition: clip:clip;clipb:clip;overlap:float:opt;dir:int:opt;
+      - Function Name: Swing
+        Function Definition: clip:clip;clipb:clip;overlap:float:opt;dir:int:opt;open:int:opt;ndoors:int:opt;corner:int:opt;
+      - Function Name: Swirl
+        Function Definition: clip:clip;clipb:clip;overlap:float:opt;qr:int:opt;dir:int:opt;
+      - Function Name: VenitianBlinds
+        Function Definition: clip:clip;clipb:clip;overlap:float:opt;style:int:opt;slatwidth:int:opt;open:int:opt;
+      - Function Name: Weave
+        Function Definition: clip:clip;clipb:clip;overlap:float:opt;style:int:opt;slatwidth:int:opt;
+      - Function Name: Wipe
+        Function Definition: clip:clip;clipb:clip;overlap:float:opt;dir:int:opt;
+
+
+
+Key: in.vcmohan.freq
+    Namespace: vcfreq
+    Identifier: in.vcmohan.freq
+    Name: VapourSynth  Frequency Domain Filters
+  - Functions: 
+      - Function Name: Blur
+        Function Definition: clip:clip;line:int:opt;x:int:opt;y:int:opt;
+      - Function Name: F1Quiver
+        Function Definition: clip:clip;filter:int[];morph:int:opt;custom:int:opt;test:int:opt;strow:int:opt;nrows:int:opt;gamma:float:opt;
+      - Function Name: F2Quiver
+        Function Definition: clip:clip;frad:int:opt;test:int:opt;morph:int:opt;gamma:float:opt;fspec:int[];
+      - Function Name: Sharp
+        Function Definition: clip:clip;line:int:opt;wn:float:opt;x:int:opt;y:int:opt;fr:int:opt;scale:float:opt;
+
+
+
+Key: in.vcmohan.mod
+    Namespace: vcmod
+    Identifier: in.vcmohan.mod
+    Name: VapourSynth Pixel Amplitude modification 
+  - Functions: 
+      - Function Name: Amplitude
+        Function Definition: clip:clip;useclip:int:opt;sclip:clip:opt;connect4:int:opt;sh:int[];sm:int[];
+      - Function Name: Fan
+        Function Definition: clip:clip;span:int:opt;edge:int:opt;plus:int:opt;minus:int:opt;uv:int:opt;
+      - Function Name: GBlur
+        Function Definition: clip:clip;ksize:int:opt;sd:float:opt;
+      - Function Name: Histogram
+        Function Definition: clip:clip;clipm:clip:opt;type:int:opt;table:int[]:opt;mf:int:opt;window:int:opt;limit:int:opt
+      - Function Name: MBlur
+        Function Definition: clip:clip;type:int:opt;x:int:opt;y:int:opt;
+      - Function Name: Median
+        Function Definition: clip:clip;maxgrid:int:opt;plane:int[]:opt;
+      - Function Name: Neural
+        Function Definition: clip:clip;txt:data:opt;fname:data:opt;tclip:clip:opt;xpts:int:opt;ypts:int:opt;tlx:int:opt;tty:int:opt;trx:int:opt;tby:int:opt;iter:int:opt;bestof:int:opt;wset:int:opt;rgb:int:opt;
+      - Function Name: SaltPepper
+        Function Definition: clip:clip;planes:int[]:opt;tol:int:opt;avg:int:opt
+      - Function Name: Variance
+        Function Definition: clip:clip;lx:int;wd:int;ty:int;ht:int;fn:int:opt;uv:int:opt;xgrid:int:opt;ygrid:int:opt;
+      - Function Name: Veed
+        Function Definition: clip:clip;str:int:opt;rad:int:opt;planes:int[]:opt;plimit:int[]:opt;mlimit:int[]:opt;
+
+
+
+Key: in.vcmohan.move
+    Namespace: vcmove
+    Identifier: in.vcmohan.move
+    Name: VapourSynth pixel repositioning Plugin
+  - Functions: 
+      - Function Name: DeBarrel
+        Function Definition: clip:clip;a:float;b:float;c:float;vhr:float:opt;pin:int:opt;yind:int:opt;ypin:int:opt;ya:float:opt;yb:float:opt;yc:float:opt;test:int:opt;
+      - Function Name: Quad2Rect
+        Function Definition: clip:clip;bkg:clip;intq:int:opt;norm:int:opt;rect:float[]:opt;quad:float[];
+      - Function Name: Rect2Quad
+        Function Definition: clip:clip;bkg:clip;intq:int:opt;norm:int:opt;rect:float[]:opt;quad:float[];
+      - Function Name: Rotate
+        Function Definition: clip:clip;bkg:clip;angle:float;dinc:float:opt;lx:int:opt;wd:int:opt;ty:int:opt;ht:int:opt;axx:int:opt;axy:int:opt;intq:int:opt;
+
+
+
+Key: mawen1250.Bilateral
+    Namespace: bilateral
+    Identifier: mawen1250.Bilateral
+    Name: Bilateral filter and Gaussian filter for VapourSynth.
+  - Functions: 
+      - Function Name: Bilateral
+        Function Definition: input:clip;ref:clip:opt;sigmaS:float[]:opt;sigmaR:float[]:opt;planes:int[]:opt;algorithm:int[]:opt;PBFICnum:int[]:opt
+      - Function Name: Gaussian
+        Function Definition: input:clip;sigma:float[]:opt;sigmaV:float[]:opt
+
+
+
+Key: net.bigjungle.qr
+    Namespace: qr
+    Identifier: net.bigjungle.qr
+    Name: QR code filter
+  - Functions: 
+      - Function Name: Code
+        Function Definition: message:data;version:int:opt;error_correction:data:opt;
+
+
+
+Key: net.sapikachu.f3kdb
+    Namespace: f3kdb
+    Identifier: net.sapikachu.f3kdb
+    Name: flash3kyuu_deband
+  - Functions: 
+      - Function Name: Deband
+        Function Definition: clip:clip;range:int:opt;y:int:opt;cb:int:opt;cr:int:opt;grainy:int:opt;grainc:int:opt;sample_mode:int:opt;seed:int:opt;blur_first:int:opt;dynamic_grain:int:opt;opt:int:opt;dither_algo:int:opt;keep_tv_range:int:opt;output_depth:int:opt;random_algo_ref:int:opt;random_algo_grain:int:opt;random_param_ref:float:opt;random_param_grain:float:opt;preset:data:opt;
+
+
+
+Key: org.ivtc.v
+    Namespace: vivtc
+    Identifier: org.ivtc.v
+    Name: VFM
+  - Functions: 
+      - Function Name: VDecimate
+        Function Definition: clip:clip;cycle:int:opt;chroma:int:opt;dupthresh:float:opt;scthresh:float:opt;blockx:int:opt;blocky:int:opt;clip2:clip:opt;ovr:data:opt;dryrun:int:opt;
+      - Function Name: VFM
+        Function Definition: clip:clip;order:int;field:int:opt;mode:int:opt;mchroma:int:opt;cthresh:int:opt;mi:int:opt;chroma:int:opt;blockx:int:opt;blocky:int:opt;y0:int:opt;y1:int:opt;scthresh:float:opt;micmatch:int:opt;micout:int:opt;clip2:clip:opt;
+
+
+
+Key: chikuzen.does.not.have.his.own.domain.scd
+    Namespace: scd
+    Identifier: chikuzen.does.not.have.his.own.domain.scd
+    Name: Scene change detect filter for VapourSynth v0.2.0
+  - Functions: 
+      - Function Name: ApplyLog
+        Function Definition: clip:clip;log:data;
+      - Function Name: Detect
+        Function Definition: clip:clip;thresh:int:opt;interval_h:int:opt;interval_v:int:opt;log:data:opt;
+
+
+
+Key: systems.innocent.DGMVC
+    Namespace: DGMVC
+    Identifier: systems.innocent.DGMVC
+    Name: DGMVCSource for VapourSynth
+  - Functions: 
+      - Function Name: DGMVCSource
+        Function Definition: base:data;dependent:data;view:int;frames:int;mode:data:opt
+
+
+
+Key: systems.innocent.fft3dfilter
+    Namespace: fft3dfilter
+    Identifier: systems.innocent.fft3dfilter
+    Name: FFT3DFilter
+  - Functions: 
+      - Function Name: FFT3DFilter
+        Function Definition: clip:clip;sigma:float:opt;beta:float:opt;planes:int[]:opt;bw:int:opt;bh:int:opt;bt:int:opt;ow:int:opt;oh:int:opt;kratio:float:opt;sharpen:float:opt;scutoff:float:opt;svr:float:opt;smin:float:opt;smax:float:opt;measure:int:opt;interlaced:int:opt;wintype:int:opt;pframe:int:opt;px:int:opt;py:int:opt;pshow:int:opt;pcutoff:float:opt;pfactor:float:opt;sigma2:float:opt;sigma3:float:opt;sigma4:float:opt;degrid:float:opt;dehalo:float:opt;hr:float:opt;ht:float:opt;ncpu:int:opt;
+
+
+
+Key: systems.innocent.lsmas
+    Namespace: lsmas
+    Identifier: systems.innocent.lsmas
+    Name: LSMASHSource for VapourSynth
+  - Functions: 
+      - Function Name: LWLibavSource
+        Function Definition: source:data;stream_index:int:opt;cache:int:opt;threads:int:opt;seek_mode:int:opt;seek_threshold:int:opt;dr:int:opt;fpsnum:int:opt;fpsden:int:opt;variable:int:opt;format:data:opt;decoder:data:opt;repeat:int:opt;dominance:int:opt;
+      - Function Name: LibavSMASHSource
+        Function Definition: source:data;track:int:opt;threads:int:opt;seek_mode:int:opt;seek_threshold:int:opt;dr:int:opt;fpsnum:int:opt;fpsden:int:opt;variable:int:opt;format:data:opt;decoder:data:opt;
+
+
+
+Key: systems.innocent.reduceflicker
+    Namespace: reduceflicker
+    Identifier: systems.innocent.reduceflicker
+    Name: ReduceFlicker rev-
+  - Functions: 
+      - Function Name: ReduceFlicker
+        Function Definition: clip:clip;strength:int:opt;aggressive:int:opt;grey:int:opt;
+
+
+
+Key: systems.innocent.tnlm
+    Namespace: tnlm
+    Identifier: systems.innocent.tnlm
+    Name: TNLMeans rev39-22a40af
+  - Functions: 
+      - Function Name: TNLMeans
+        Function Definition: clip:clip;ax:int:opt;ay:int:opt;az:int:opt;sx:int:opt;sy:int:opt;bx:int:opt;by:int:opt;a:float:opt;h:float:opt;ssd:int:opt;
+
+
+
+Key: tegaf.asi.xe
+    Namespace: descale
+    Identifier: tegaf.asi.xe
+    Name: Undo linear interpolation
+  - Functions: 
+      - Function Name: Debicubic
+        Function Definition: src:clip;width:int;height:int;b:float:opt;c:float:opt;src_left:float:opt;src_top:float:opt
+      - Function Name: Debilinear
+        Function Definition: src:clip;width:int;height:int;src_left:float:opt;src_top:float:opt
+      - Function Name: Delanczos
+        Function Definition: src:clip;width:int;height:int;taps:int:opt;src_left:float:opt;src_top:float:opt
+      - Function Name: Despline16
+        Function Definition: src:clip;width:int;height:int;src_left:float:opt;src_top:float:opt
+      - Function Name: Despline36
+        Function Definition: src:clip;width:int;height:int;src_left:float:opt;src_top:float:opt
+
+
+
+Key: toggaf.asi.xe
+    Namespace: descale_getnative
+    Identifier: toggaf.asi.xe
+    Name: Undo linear interpolation
+  - Functions: 
+      - Function Name: Debicubic
+        Function Definition: src:clip;width:int;height:int;b:float:opt;c:float:opt;src_left:float:opt;src_top:float:opt;cache_size:int:opt
+      - Function Name: Debilinear
+        Function Definition: src:clip;width:int;height:int;src_left:float:opt;src_top:float:opt;cache_size:int:opt
+      - Function Name: Delanczos
+        Function Definition: src:clip;width:int;height:int;taps:int:opt;src_left:float:opt;src_top:float:opt;cache_size:int:opt
+      - Function Name: Despline16
+        Function Definition: src:clip;width:int;height:int;src_left:float:opt;src_top:float:opt;cache_size:int:opt
+      - Function Name: Despline36
+        Function Definition: src:clip;width:int;height:int;src_left:float:opt;src_top:float:opt;cache_size:int:opt
+
+
+
+Key: xxx.abc.avsproxy
+    Namespace: avsw
+    Identifier: xxx.abc.avsproxy
+    Name: avsproxy
+  - Functions: 
+      - Function Name: Eval
+        Function Definition: script:data;clips:clip[]:opt;clip_names:data[]:opt;avisynth:data:opt;slave:data:opt;slave_log:data:opt;
+
+
+
+Key: xxx.abc.znedi3
+    Namespace: znedi3
+    Identifier: xxx.abc.znedi3
+    Name: Neural network edge directed interpolation (3rd gen.)
+  - Functions: 
+      - Function Name: nnedi3
+        Function Definition: clip:clip;field:int;dh:int:opt;planes:int[]:opt;nsize:int:opt;nns:int:opt;qual:int:opt;etype:int:opt;pscrn:int:opt;opt:int:opt;int16_prescreener:int:opt;int16_predictor:int:opt;exp:int:opt;show_mask:int:opt;x_nnedi3_weights_bin:data:opt;x_cpu:data:opt;
+
+
+
+Key: com.Khanattila.KNLMeansCL
+    Namespace: knlm
+    Identifier: com.Khanattila.KNLMeansCL
+    Name: KNLMeansCL for VapourSynth
+  - Functions: 
+      - Function Name: KNLMeansCL
+        Function Definition: clip:clip;d:int:opt;a:int:opt;s:int:opt;h:float:opt;channels:data:opt;wmode:int:opt;wref:float:opt;rclip:clip:opt;device_type:data:opt;device_id:int:opt;ocl_x:int:opt;ocl_y:int:opt;ocl_r:int:opt;info:int:opt
+
+
+
+Key: com.deinterlace.ftf
+    Namespace: ftf
+    Identifier: com.deinterlace.ftf
+    Name: Fix Telecined Fades
+  - Functions: 
+      - Function Name: FixFades
+        Function Definition: clip:clip;mode:int:opt;threshold:float:opt;color:float[]:opt;opt:int:opt;
+
+
+
+Key: com.deinterlace.nnedi3
+    Namespace: nnedi3
+    Identifier: com.deinterlace.nnedi3
+    Name: Neural network edge directed interpolation (3rd gen.), v12
+  - Functions: 
+      - Function Name: nnedi3
+        Function Definition: clip:clip;field:int;dh:int:opt;planes:int[]:opt;nsize:int:opt;nns:int:opt;qual:int:opt;etype:int:opt;pscrn:int:opt;opt:int:opt;int16_prescreener:int:opt;int16_predictor:int:opt;exp:int:opt;show_mask:int:opt;combed_only:int:opt;
+
+
+
+Key: com.djatom.tcm
+    Namespace: tcm
+    Identifier: com.djatom.tcm
+    Name: TColorMask plugin for VapourSynth.
+  - Functions: 
+      - Function Name: TColorMask
+        Function Definition: clip:clip;colors:data[];tolerance:int:opt;bt601:int:opt;gray:int:opt;lutthr:int:opt;
+
+
+
+Key: com.djatom.tmc
+    Namespace: tmc
+    Identifier: com.djatom.tmc
+    Name: A really simple mask cleaning plugin for VapourSynth based on mt_hysteresis.
+  - Functions: 
+      - Function Name: TMaskCleaner
+        Function Definition: clip:clip;length:int:opt;thresh:int:opt;fade:int:opt;
+
+
+
+Key: com.fakeurl.removedirtvs
+    Namespace: rdvs
+    Identifier: com.fakeurl.removedirtvs
+    Name: RemoveDirt VapourSynth Port
+  - Functions: 
+      - Function Name: DupBlocks
+        Function Definition: input:clip;gmthreshold:int:opt;mthreshold:int:opt;noise:int:opt;noisy:int:opt;dist:int:opt;tolerance:int:opt;dmode:int:opt;pthreshold:int:opt;cthreshold:int:opt;grey:int:opt;
+      - Function Name: RestoreMotionBlocks
+        Function Definition: input:clip;restore:clip;neighbour:clip:opt;neighbour2:clip:opt;alternative:clip:opt;gmthreshold:int:opt;mthreshold:int:opt;noise:int:opt;noisy:int:opt;dist:int:opt;tolerance:int:opt;dmode:int:opt;pthreshold:int:opt;cthreshold:int:opt;grey:int:opt;
+      - Function Name: SCSelect
+        Function Definition: input:clip;sceneBegin:clip;sceneEnd:clip;globalMotion:clip;dfactor:float:opt;
+
+
+
+Key: com.holywu.addgrain
+    Namespace: grain
+    Identifier: com.holywu.addgrain
+    Name: Add some correlated color gaussian noise
+  - Functions: 
+      - Function Name: Add
+        Function Definition: clip:clip;var:float:opt;uvar:float:opt;hcorr:float:opt;vcorr:float:opt;seed:int:opt;constant:int:opt;
+
+
+
+Key: com.holywu.ctmf
+    Namespace: ctmf
+    Identifier: com.holywu.ctmf
+    Name: Constant Time Median Filtering
+  - Functions: 
+      - Function Name: CTMF
+        Function Definition: clip:clip;radius:int:opt;memsize:int:opt;opt:int:opt;planes:int[]:opt;
+
+
+
+Key: biz.srsfckn.Vinverse
+    Namespace: vinverse
+    Identifier: biz.srsfckn.Vinverse
+    Name: A simple filter to remove residual combing.
+  - Functions: 
+      - Function Name: Vinverse
+        Function Definition: clip:clip;sstr:float:opt;amnt:int:opt;scl:float:opt;
+
+
+
+Key: com.holywu.dctfilter
+    Namespace: dctf
+    Identifier: com.holywu.dctfilter
+    Name: DCT/IDCT Frequency Suppressor
+  - Functions: 
+      - Function Name: DCTFilter
+        Function Definition: clip:clip;factors:float[];planes:int[]:opt;
+
+
+
+Key: com.holywu.deblock
+    Namespace: deblock
+    Identifier: com.holywu.deblock
+    Name: It does a deblocking of the picture, using the deblocking filter of h264
+  - Functions: 
+      - Function Name: Deblock
+        Function Definition: clip:clip;quant:int:opt;aoffset:int:opt;boffset:int:opt;planes:int[]:opt;
+
+
+
+Key: com.holywu.depan
+    Namespace: depan
+    Identifier: com.holywu.depan
+    Name: Tools for estimation and compensation of global motion (pan)
+  - Functions: 
+      - Function Name: DePan
+        Function Definition: clip:clip;data:clip;offset:float:opt;pixaspect:float:opt;matchfields:int:opt;mirror:int:opt;blur:int:opt;planes:int[]:opt;
+      - Function Name: DePanEstimate
+        Function Definition: clip:clip;range:int:opt;trust:float:opt;winx:int:opt;winy:int:opt;wleft:int:opt;wtop:int:opt;dxmax:int:opt;dymax:int:opt;zoommax:float:opt;stab:float:opt;pixaspect:float:opt;
+
+
+
+Key: com.holywu.dfttest
+    Namespace: dfttest
+    Identifier: com.holywu.dfttest
+    Name: 2D/3D frequency domain denoiser
+  - Functions: 
+      - Function Name: DFTTest
+        Function Definition: clip:clip;ftype:int:opt;sigma:float:opt;sigma2:float:opt;pmin:float:opt;pmax:float:opt;sbsize:int:opt;smode:int:opt;sosize:int:opt;tbsize:int:opt;tmode:int:opt;tosize:int:opt;swin:int:opt;twin:int:opt;sbeta:float:opt;tbeta:float:opt;zmean:int:opt;f0beta:float:opt;nstring:data:opt;sstring:data:opt;ssx:data:opt;ssy:data:opt;sst:data:opt;planes:int[]:opt;opt:int:opt;
+
+
+
+Key: com.holywu.eedi2
+    Namespace: eedi2
+    Identifier: com.holywu.eedi2
+    Name: EEDI2
+  - Functions: 
+      - Function Name: EEDI2
+        Function Definition: clip:clip;field:int;mthresh:int:opt;lthresh:int:opt;vthresh:int:opt;estr:int:opt;dstr:int:opt;maxd:int:opt;map:int:opt;nt:int:opt;pp:int:opt;
+
+
+
+Key: com.holywu.eedi3
+    Namespace: eedi3m
+    Identifier: com.holywu.eedi3
+    Name: An intra-field only deinterlacer
+  - Functions: 
+      - Function Name: EEDI3
+        Function Definition: clip:clip;field:int;dh:int:opt;planes:int[]:opt;alpha:float:opt;beta:float:opt;gamma:float:opt;nrad:int:opt;mdis:int:opt;hp:int:opt;ucubic:int:opt;cost3:int:opt;vcheck:int:opt;vthresh0:float:opt;vthresh1:float:opt;vthresh2:float:opt;sclip:clip:opt;opt:int:opt;
+      - Function Name: EEDI3CL
+        Function Definition: clip:clip;field:int;dh:int:opt;planes:int[]:opt;alpha:float:opt;beta:float:opt;gamma:float:opt;nrad:int:opt;mdis:int:opt;hp:int:opt;ucubic:int:opt;cost3:int:opt;vcheck:int:opt;vthresh0:float:opt;vthresh1:float:opt;vthresh2:float:opt;sclip:clip:opt;opt:int:opt;device:int:opt;list_device:int:opt;info:int:opt;
+
+
+
+Key: com.holywu.nnedi3cl
+    Namespace: nnedi3cl
+    Identifier: com.holywu.nnedi3cl
+    Name: An intra-field only deinterlacer
+  - Functions: 
+      - Function Name: NNEDI3CL
+        Function Definition: clip:clip;field:int;dh:int:opt;dw:int:opt;planes:int[]:opt;nsize:int:opt;nns:int:opt;qual:int:opt;etype:int:opt;pscrn:int:opt;device:int:opt;list_device:int:opt;info:int:opt;
+
+
+
+Key: com.holywu.pp7
+    Namespace: pp7
+    Identifier: com.holywu.pp7
+    Name: Postprocess 7 from MPlayer
+  - Functions: 
+      - Function Name: DeblockPP7
+        Function Definition: clip:clip;qp:float:opt;mode:int:opt;opt:int:opt;planes:int[]:opt;
+
+
+
+Key: com.holywu.readmpls
+    Namespace: mpls
+    Identifier: com.holywu.readmpls
+    Name: Reads a mpls file and returns a dictionary
+  - Functions: 
+      - Function Name: Read
+        Function Definition: source:data;angle:int:opt;
+
+
+
+Key: com.holywu.tcanny
+    Namespace: tcanny
+    Identifier: com.holywu.tcanny
+    Name: Build an edge map using canny edge detection
+  - Functions: 
+      - Function Name: TCanny
+        Function Definition: clip:clip;sigma:float[]:opt;t_h:float:opt;t_l:float:opt;mode:int:opt;op:int:opt;gmmax:float:opt;opt:int:opt;planes:int[]:opt;
+      - Function Name: TCannyCL
+        Function Definition: clip:clip;sigma:float[]:opt;t_h:float:opt;t_l:float:opt;mode:int:opt;op:int:opt;gmmax:float:opt;device:int:opt;list_device:int:opt;info:int:opt;planes:int[]:opt;
+
+
+
+Key: biz.srsfckn.morpho
+    Namespace: morpho
+    Identifier: biz.srsfckn.morpho
+    Name: Simple morphological filters.
+  - Functions: 
+      - Function Name: BottomHat
+        Function Definition: clip:clip;size:int:opt;shape:int:opt
+      - Function Name: Close
+        Function Definition: clip:clip;size:int:opt;shape:int:opt
+      - Function Name: Dilate
+        Function Definition: clip:clip;size:int:opt;shape:int:opt
+      - Function Name: Erode
+        Function Definition: clip:clip;size:int:opt;shape:int:opt
+      - Function Name: Open
+        Function Definition: clip:clip;size:int:opt;shape:int:opt
+      - Function Name: TopHat
+        Function Definition: clip:clip;size:int:opt;shape:int:opt
+
+
+
+Key: com.holywu.tdeintmod
+    Namespace: tdm
+    Identifier: com.holywu.tdeintmod
+    Name: A bi-directionally motion adaptive deinterlacer
+  - Functions: 
+      - Function Name: IsCombed
+        Function Definition: clip:clip;cthresh:int:opt;blockx:int:opt;blocky:int:opt;chroma:int:opt;mi:int:opt;metric:int:opt;
+      - Function Name: TDeintMod
+        Function Definition: clip:clip;order:int;field:int:opt;mode:int:opt;length:int:opt;mtype:int:opt;ttype:int:opt;mtql:int:opt;mthl:int:opt;mtqc:int:opt;mthc:int:opt;nt:int:opt;minthresh:int:opt;maxthresh:int:opt;cstr:int:opt;athresh:int:opt;metric:int:opt;expand:int:opt;link:int:opt;show:int:opt;edeint:clip:opt;opt:int:opt;planes:int[]:opt;
+
+
+
+Key: com.holywu.ttempsmooth
+    Namespace: ttmpsm
+    Identifier: com.holywu.ttempsmooth
+    Name: A basic, motion adaptive, temporal smoothing filter
+  - Functions: 
+      - Function Name: TTempSmooth
+        Function Definition: clip:clip;maxr:int:opt;thresh:int[]:opt;mdiff:int[]:opt;strength:int:opt;scthresh:float:opt;fp:int:opt;pfclip:clip:opt;planes:int[]:opt;
+
+
+
+Key: com.holywu.vaguedenoiser
+    Namespace: vd
+    Identifier: com.holywu.vaguedenoiser
+    Name: A wavelet based denoiser
+  - Functions: 
+      - Function Name: VagueDenoiser
+        Function Definition: clip:clip;threshold:float:opt;method:int:opt;nsteps:int:opt;percent:float:opt;planes:int[]:opt;
+
+
+
+Key: com.holywu.vsfilter
+    Namespace: vsf
+    Identifier: com.holywu.vsfilter
+    Name: VSFilter
+  - Functions: 
+      - Function Name: TextSub
+        Function Definition: clip:clip;file:data;charset:int:opt;fps:float:opt;vfr:data:opt;
+      - Function Name: VobSub
+        Function Definition: clip:clip;file:data;
+
+
+
+Key: com.holywu.vsfiltermod
+    Namespace: vsfm
+    Identifier: com.holywu.vsfiltermod
+    Name: VSFilterMod
+  - Functions: 
+      - Function Name: TextSubMod
+        Function Definition: clip:clip;file:data;charset:int:opt;fps:float:opt;vfr:data:opt;accurate:int:opt;
+      - Function Name: VobSub
+        Function Definition: clip:clip;file:data;accurate:int:opt;
+
+
+
+Key: com.holywu.w3fdif
+    Namespace: w3fdif
+    Identifier: com.holywu.w3fdif
+    Name: Weston 3 Field Deinterlacing Filter
+  - Functions: 
+      - Function Name: W3FDIF
+        Function Definition: clip:clip;order:int;mode:int:opt;
+
+
+
+Key: com.holywu.waifu2x-caffe
+    Namespace: caffe
+    Identifier: com.holywu.waifu2x-caffe
+    Name: Image Super-Resolution using Deep Convolutional Neural Networks
+  - Functions: 
+      - Function Name: Waifu2x
+        Function Definition: clip:clip;noise:int:opt;scale:int:opt;block_w:int:opt;block_h:int:opt;model:int:opt;cudnn:int:opt;processor:int:opt;tta:int:opt;batch:int:opt;
+
+
+
+Key: com.holywu.waifu2x-w2xc
+    Namespace: w2xc
+    Identifier: com.holywu.waifu2x-w2xc
+    Name: Image Super-Resolution using Deep Convolutional Neural Networks
+  - Functions: 
+      - Function Name: Waifu2x
+        Function Definition: clip:clip;noise:int:opt;scale:int:opt;block:int:opt;photo:int:opt;gpu:int:opt;processor:int:opt;list_proc:int:opt;log:int:opt;
+
+
+
+Key: com.holywu.yadifmod
+    Namespace: yadifmod
+    Identifier: com.holywu.yadifmod
+    Name: Modification of Fizick's yadif avisynth filter
+  - Functions: 
+      - Function Name: Yadifmod
+        Function Definition: clip:clip;edeint:clip;order:int;field:int:opt;mode:int:opt;opt:int:opt;
+
+
+
+Key: com.ifb.colorbars
+    Namespace: colorbars
+    Identifier: com.ifb.colorbars
+    Name: SMPTE RP 219-2:2016 and ITU-BT.2111 color bar generator for VapourSynth
+  - Functions: 
+      - Function Name: ColorBars
+        Function Definition: resolution:int:opt;format:int:opt;hdr:int:opt;wcg:int:opt;compatability:int:opt;subblack:int:opt;superwhite:int:opt;iq:int:opt;filter:int:opt;
+
+
+
+Key: biz.srsfckn.subtext
+    Namespace: sub
+    Identifier: biz.srsfckn.subtext
+    Name: A subtitling filter based on libass and ffmpeg.
+  - Functions: 
+      - Function Name: ImageFile
+        Function Definition: clip:clip;file:data;id:int:opt;palette:int[]:opt;gray:int:opt;info:int:opt;flatten:int:opt;blend:int:opt;matrix:int:opt;matrix_s:data:opt;transfer:int:opt;transfer_s:data:opt;primaries:int:opt;primaries_s:data:opt;
+      - Function Name: Subtitle
+        Function Definition: clip:clip;text:data;start:int:opt;end:int:opt;debuglevel:int:opt;fontdir:data:opt;linespacing:float:opt;margins:int[]:opt;sar:float:opt;style:data:opt;blend:int:opt;matrix:int:opt;matrix_s:data:opt;transfer:int:opt;transfer_s:data:opt;primaries:int:opt;primaries_s:data:opt;
+      - Function Name: TextFile
+        Function Definition: clip:clip;file:data;charset:data:opt;scale:float:opt;debuglevel:int:opt;fontdir:data:opt;linespacing:float:opt;margins:int[]:opt;sar:float:opt;style:data:opt;blend:int:opt;matrix:int:opt;matrix_s:data:opt;transfer:int:opt;transfer_s:data:opt;primaries:int:opt;primaries_s:data:opt;
+
+
+
+Key: com.ifb.tonemap
+    Namespace: tonemap
+    Identifier: com.ifb.tonemap
+    Name: Simple tone mapping for VapourSynth
+  - Functions: 
+      - Function Name: Hable
+        Function Definition: clip:clip;exposure:float:opt;a:float:opt;b:float:opt;c:float:opt;d:float:opt;e:float:opt;f:float:opt;w:float:opt;
+      - Function Name: Mobius
+        Function Definition: clip:clip;exposure:float:opt;transition:float:opt;peak:float:opt;
+      - Function Name: Reinhard
+        Function Definition: clip:clip;exposure:float:opt;contrast:float:opt;peak:float:opt;
+
+
+
+Key: com.kewenyu.bezier
+    Namespace: bezier
+    Identifier: com.kewenyu.bezier
+    Name: vapoursynth bezier curve test
+  - Functions: 
+      - Function Name: Cubic
+        Function Definition: clip:clip;accur:float:opt;input_range:int:opt;begin:int:opt;end:int:opt;x1:int:opt;y1:int:opt;x2:int:opt;y2:int:opt;
+      - Function Name: Quadratic
+        Function Definition: clip:clip;accur:float:opt;input_range:int:opt;begin:int:opt;end:int:opt;x1:int:opt;y1:int:opt;
+
+
+
+Key: com.mio.noisegen
+    Namespace: noisegen
+    Identifier: com.mio.noisegen
+    Name: VapourSynth Noise Generator
+  - Functions: 
+      - Function Name: Generate
+        Function Definition: clip:clip;str:float:opt;limit:float:opt;type:int:opt;mean:float:opt;var:float:opt;dyn:int:opt;full:int:opt;planes:int[]:opt;
+
+
+
+Key: com.mio.rf
+    Namespace: rf
+    Identifier: com.mio.rf
+    Name: VapourSynth Replace Frames Tool
+  - Functions: 
+      - Function Name: Replace
+        Function Definition: clip:clip;clips:clip[];intervals:data[];
+
+
+
+Key: com.mio.sangnom
+    Namespace: sangnom
+    Identifier: com.mio.sangnom
+    Name: VapourSynth Single Field Deinterlacer
+  - Functions: 
+      - Function Name: SangNom
+        Function Definition: clip:clip;order:int:opt;dh:int:opt;aa:int[]:opt;planes:int[]:opt;
+
+
+
+Key: com.monos.edgefixer
+    Namespace: edgefixer
+    Identifier: com.monos.edgefixer
+    Name: VapourSynth edgefixer port
+  - Functions: 
+      - Function Name: ContinuityFixer
+        Function Definition: clip:clip;left:int[];top:int[];right:int[];bottom:int[];radius:int[]:opt;
+
+
+
+Key: com.monos.tmap
+    Namespace: tmap
+    Identifier: com.monos.tmap
+    Name: Hable Tonemapping
+  - Functions: 
+      - Function Name: tm
+        Function Definition: clip:clip;source_peak:float;desat:float:opt;lin:int:opt;show_satmask:int:opt;show_clipped:int:opt;
+
+
+
+Key: com.nodame.awarpsharp2
+    Namespace: warp
+    Identifier: com.nodame.awarpsharp2
+    Name: Sharpen images by warping
+  - Functions: 
+      - Function Name: ABlur
+        Function Definition: clip:clip;blur:int:opt;type:int:opt;planes:int[]:opt;opt:int:opt;
+      - Function Name: ASobel
+        Function Definition: clip:clip;thresh:int:opt;planes:int[]:opt;opt:int:opt;
+      - Function Name: AWarp
+        Function Definition: clip:clip;mask:clip;depth:int[]:opt;chroma:int:opt;planes:int[]:opt;opt:int:opt;cplace:data:opt;
+      - Function Name: AWarpSharp2
+        Function Definition: clip:clip;thresh:int:opt;blur:int:opt;type:int:opt;depth:int[]:opt;chroma:int:opt;planes:int[]:opt;opt:int:opt;cplace:data:opt;
+
+
+
+Key: com.nodame.bifrost
+    Namespace: bifrost
+    Identifier: com.nodame.bifrost
+    Name: Bifrost plugin for VapourSynth
+  - Functions: 
+      - Function Name: Bifrost
+        Function Definition: clip:clip;altclip:clip:opt;luma_thresh:float:opt;variation:int:opt;conservative_mask:int:opt;interlaced:int:opt;blockx:int:opt;blocky:int:opt;
+      - Function Name: BlockDiff
+        Function Definition: clip:clip;interlaced:int:opt;blockx:int:opt;blocky:int:opt;
+
+
+
+Key: com.nodame.cnr2
+    Namespace: cnr2
+    Identifier: com.nodame.cnr2
+    Name: Chroma noise reducer
+  - Functions: 
+      - Function Name: Cnr2
+        Function Definition: clip:clip;mode:data:opt;scdthr:float:opt;ln:int:opt;lm:int:opt;un:int:opt;um:int:opt;vn:int:opt;vm:int:opt;scenechroma:int:opt;
+
+
+
+Key: blaze.plugin.remap
+    Namespace: remap
+    Identifier: blaze.plugin.remap
+    Name: Remaps frame indices based on a file/string
+  - Functions: 
+      - Function Name: RemapFrames
+        Function Definition: baseclip:clip;filename:data:opt;mappings:data:opt;sourceclip:clip:opt;mismatch:int:opt;
+      - Function Name: RemapFramesSimple
+        Function Definition: clip:clip;filename:data:opt;mappings:data:opt;
+      - Function Name: Remf
+        Function Definition: baseclip:clip;filename:data:opt;mappings:data:opt;sourceclip:clip:opt;mismatch:int:opt;
+      - Function Name: Remfs
+        Function Definition: clip:clip;filename:data:opt;mappings:data:opt;
+      - Function Name: ReplaceFramesSimple
+        Function Definition: baseclip:clip;sourceclip:clip;filename:data:opt;mappings:data:opt;mismatch:int:opt;
+      - Function Name: Rfs
+        Function Definition: baseclip:clip;sourceclip:clip;filename:data:opt;mappings:data:opt;mismatch:int:opt;
+
+
+
+Key: com.nodame.damb
+    Namespace: damb
+    Identifier: com.nodame.damb
+    Name: Audio file reader and writer
+  - Functions: 
+      - Function Name: Read
+        Function Definition: clip:clip;file:data;delay:float:opt;
+      - Function Name: Write
+        Function Definition: clip:clip;file:data;format:data:opt;sample_type:data:opt;quality:float:opt;
+
+
+
+Key: com.nodame.decross
+    Namespace: decross
+    Identifier: com.nodame.decross
+    Name: Spatio-temporal derainbow filter
+  - Functions: 
+      - Function Name: DeCross
+        Function Definition: clip:clip;thresholdy:int:opt;noise:int:opt;margin:int:opt;debug:int:opt;
+
+
+
+Key: com.nodame.dedot
+    Namespace: dedot
+    Identifier: com.nodame.dedot
+    Name: Temporal dotcrawl and rainbow remover
+  - Functions: 
+      - Function Name: Dedot
+        Function Definition: clip:clip;luma_2d:int:opt;luma_t:int:opt;chroma_t1:int:opt;chroma_t2:int:opt;
+
+
+
+Key: com.nodame.degrainmedian
+    Namespace: dgm
+    Identifier: com.nodame.degrainmedian
+    Name: Spatio-temporal limited median denoiser
+  - Functions: 
+      - Function Name: DegrainMedian
+        Function Definition: clip:clip;limit:int[]:opt;mode:int[]:opt;interlaced:int:opt;norow:int:opt;opt:int:opt;
+
+
+
+Key: com.nodame.fieldhint
+    Namespace: fh
+    Identifier: com.nodame.fieldhint
+    Name: FieldHint Plugin
+  - Functions: 
+      - Function Name: FieldHint
+        Function Definition: clip:clip;ovr:data:opt;tff:int:opt;matches:data:opt;
+      - Function Name: Fieldhint
+        Function Definition: clip:clip;ovr:data:opt;tff:int:opt;matches:data:opt;
+
+
+
+Key: com.nodame.fillborders
+    Namespace: fb
+    Identifier: com.nodame.fillborders
+    Name: FillBorders plugin for VapourSynth
+  - Functions: 
+      - Function Name: FillBorders
+        Function Definition: clip:clip;left:int:opt;right:int:opt;top:int:opt;bottom:int:opt;mode:data:opt;
+
+
+
+Key: com.nodame.fluxsmooth
+    Namespace: flux
+    Identifier: com.nodame.fluxsmooth
+    Name: FluxSmooth plugin for VapourSynth
+  - Functions: 
+      - Function Name: SmoothST
+        Function Definition: clip:clip;temporal_threshold:int:opt;spatial_threshold:int:opt;planes:int[]:opt;
+      - Function Name: SmoothT
+        Function Definition: clip:clip;temporal_threshold:int:opt;planes:int[]:opt;
+
+
+
+Key: com.nodame.histogram
+    Namespace: hist
+    Identifier: com.nodame.histogram
+    Name: VapourSynth Histogram Plugin
+  - Functions: 
+      - Function Name: Classic
+        Function Definition: clip:clip;
+      - Function Name: Color
+        Function Definition: clip:clip;
+      - Function Name: Color2
+        Function Definition: clip:clip;
+      - Function Name: Levels
+        Function Definition: clip:clip;factor:float:opt;
+      - Function Name: Luma
+        Function Definition: clip:clip;
+
+
+
+Key: com.nodame.minideen
+    Namespace: minideen
+    Identifier: com.nodame.minideen
+    Name: Spatial convolution with thresholds
+  - Functions: 
+      - Function Name: MiniDeen
+        Function Definition: clip:clip;radius:int[]:opt;threshold:int[]:opt;planes:int[]:opt;
+
+
+
+Key: com.nodame.motionmask
+    Namespace: motionmask
+    Identifier: com.nodame.motionmask
+    Name: MotionMask creates a mask of moving pixels
+  - Functions: 
+      - Function Name: MotionMask
+        Function Definition: clip:clip;planes:int[]:opt;th1:int[]:opt;th2:int[]:opt;tht:int:opt;sc_value:int:opt;
+
+
+
+Key: blaze.plugin.vfrtocfr
+    Namespace: vfrtocfr
+    Identifier: blaze.plugin.vfrtocfr
+    Name: VFR to CFR Video Converter
+  - Functions: 
+      - Function Name: VFRToCFR
+        Function Definition: clip:clip;timecodes:data;fpsnum:int;fpsden:int;drop:int:opt;
+
+
+
+Key: com.nodame.msmoosh
+    Namespace: msmoosh
+    Identifier: com.nodame.msmoosh
+    Name: MSmooth and MSharpen
+  - Functions: 
+      - Function Name: MSharpen
+        Function Definition: clip:clip;threshold:float:opt;strength:float:opt;mask:int:opt;planes:int[]:opt;
+      - Function Name: MSmooth
+        Function Definition: clip:clip;threshold:float:opt;strength:int:opt;mask:int:opt;planes:int[]:opt;
+
+
+
+Key: com.nodame.mvsf
+    Namespace: mvsf
+    Identifier: com.nodame.mvsf
+    Name: MVTools Single Precision
+  - Functions: 
+      - Function Name: Analyse
+        Function Definition: super:clip;blksize:int:opt;blksizev:int:opt;levels:int:opt;search:int:opt;searchparam:int:opt;pelsearch:int:opt;isb:int:opt;lambda:float:opt;chroma:int:opt;delta:int:opt;truemotion:int:opt;lsad:float:opt;plevel:int:opt;global:int:opt;pnew:int:opt;pzero:int:opt;pglobal:int:opt;overlap:int:opt;overlapv:int:opt;divide:int:opt;badsad:float:opt;badrange:int:opt;meander:int:opt;trymany:int:opt;fields:int:opt;tff:int:opt;search_coarse:int:opt;dct:int:opt;
+      - Function Name: Analyze
+        Function Definition: super:clip;blksize:int:opt;blksizev:int:opt;levels:int:opt;search:int:opt;searchparam:int:opt;pelsearch:int:opt;isb:int:opt;lambda:float:opt;chroma:int:opt;delta:int:opt;truemotion:int:opt;lsad:float:opt;plevel:int:opt;global:int:opt;pnew:int:opt;pzero:int:opt;pglobal:int:opt;overlap:int:opt;overlapv:int:opt;divide:int:opt;badsad:float:opt;badrange:int:opt;meander:int:opt;trymany:int:opt;fields:int:opt;tff:int:opt;search_coarse:int:opt;dct:int:opt;
+      - Function Name: BlockFPS
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;num:int:opt;den:int:opt;mode:int:opt;ml:float:opt;blend:int:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Compensate
+        Function Definition: clip:clip;super:clip;vectors:clip;scbehavior:int:opt;thsad:float:opt;fields:int:opt;time:float:opt;thscd1:float:opt;thscd2:float:opt;tff:int:opt;
+      - Function Name: Degrain1
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain10
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;mvbw4:clip;mvfw4:clip;mvbw5:clip;mvfw5:clip;mvbw6:clip;mvfw6:clip;mvbw7:clip;mvfw7:clip;mvbw8:clip;mvfw8:clip;mvbw9:clip;mvfw9:clip;mvbw10:clip;mvfw10:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain11
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;mvbw4:clip;mvfw4:clip;mvbw5:clip;mvfw5:clip;mvbw6:clip;mvfw6:clip;mvbw7:clip;mvfw7:clip;mvbw8:clip;mvfw8:clip;mvbw9:clip;mvfw9:clip;mvbw10:clip;mvfw10:clip;mvbw11:clip;mvfw11:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain12
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;mvbw4:clip;mvfw4:clip;mvbw5:clip;mvfw5:clip;mvbw6:clip;mvfw6:clip;mvbw7:clip;mvfw7:clip;mvbw8:clip;mvfw8:clip;mvbw9:clip;mvfw9:clip;mvbw10:clip;mvfw10:clip;mvbw11:clip;mvfw11:clip;mvbw12:clip;mvfw12:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain13
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;mvbw4:clip;mvfw4:clip;mvbw5:clip;mvfw5:clip;mvbw6:clip;mvfw6:clip;mvbw7:clip;mvfw7:clip;mvbw8:clip;mvfw8:clip;mvbw9:clip;mvfw9:clip;mvbw10:clip;mvfw10:clip;mvbw11:clip;mvfw11:clip;mvbw12:clip;mvfw12:clip;mvbw13:clip;mvfw13:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain14
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;mvbw4:clip;mvfw4:clip;mvbw5:clip;mvfw5:clip;mvbw6:clip;mvfw6:clip;mvbw7:clip;mvfw7:clip;mvbw8:clip;mvfw8:clip;mvbw9:clip;mvfw9:clip;mvbw10:clip;mvfw10:clip;mvbw11:clip;mvfw11:clip;mvbw12:clip;mvfw12:clip;mvbw13:clip;mvfw13:clip;mvbw14:clip;mvfw14:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain15
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;mvbw4:clip;mvfw4:clip;mvbw5:clip;mvfw5:clip;mvbw6:clip;mvfw6:clip;mvbw7:clip;mvfw7:clip;mvbw8:clip;mvfw8:clip;mvbw9:clip;mvfw9:clip;mvbw10:clip;mvfw10:clip;mvbw11:clip;mvfw11:clip;mvbw12:clip;mvfw12:clip;mvbw13:clip;mvfw13:clip;mvbw14:clip;mvfw14:clip;mvbw15:clip;mvfw15:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain16
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;mvbw4:clip;mvfw4:clip;mvbw5:clip;mvfw5:clip;mvbw6:clip;mvfw6:clip;mvbw7:clip;mvfw7:clip;mvbw8:clip;mvfw8:clip;mvbw9:clip;mvfw9:clip;mvbw10:clip;mvfw10:clip;mvbw11:clip;mvfw11:clip;mvbw12:clip;mvfw12:clip;mvbw13:clip;mvfw13:clip;mvbw14:clip;mvfw14:clip;mvbw15:clip;mvfw15:clip;mvbw16:clip;mvfw16:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain17
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;mvbw4:clip;mvfw4:clip;mvbw5:clip;mvfw5:clip;mvbw6:clip;mvfw6:clip;mvbw7:clip;mvfw7:clip;mvbw8:clip;mvfw8:clip;mvbw9:clip;mvfw9:clip;mvbw10:clip;mvfw10:clip;mvbw11:clip;mvfw11:clip;mvbw12:clip;mvfw12:clip;mvbw13:clip;mvfw13:clip;mvbw14:clip;mvfw14:clip;mvbw15:clip;mvfw15:clip;mvbw16:clip;mvfw16:clip;mvbw17:clip;mvfw17:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain18
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;mvbw4:clip;mvfw4:clip;mvbw5:clip;mvfw5:clip;mvbw6:clip;mvfw6:clip;mvbw7:clip;mvfw7:clip;mvbw8:clip;mvfw8:clip;mvbw9:clip;mvfw9:clip;mvbw10:clip;mvfw10:clip;mvbw11:clip;mvfw11:clip;mvbw12:clip;mvfw12:clip;mvbw13:clip;mvfw13:clip;mvbw14:clip;mvfw14:clip;mvbw15:clip;mvfw15:clip;mvbw16:clip;mvfw16:clip;mvbw17:clip;mvfw17:clip;mvbw18:clip;mvfw18:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain19
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;mvbw4:clip;mvfw4:clip;mvbw5:clip;mvfw5:clip;mvbw6:clip;mvfw6:clip;mvbw7:clip;mvfw7:clip;mvbw8:clip;mvfw8:clip;mvbw9:clip;mvfw9:clip;mvbw10:clip;mvfw10:clip;mvbw11:clip;mvfw11:clip;mvbw12:clip;mvfw12:clip;mvbw13:clip;mvfw13:clip;mvbw14:clip;mvfw14:clip;mvbw15:clip;mvfw15:clip;mvbw16:clip;mvfw16:clip;mvbw17:clip;mvfw17:clip;mvbw18:clip;mvfw18:clip;mvbw19:clip;mvfw19:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain2
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain20
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;mvbw4:clip;mvfw4:clip;mvbw5:clip;mvfw5:clip;mvbw6:clip;mvfw6:clip;mvbw7:clip;mvfw7:clip;mvbw8:clip;mvfw8:clip;mvbw9:clip;mvfw9:clip;mvbw10:clip;mvfw10:clip;mvbw11:clip;mvfw11:clip;mvbw12:clip;mvfw12:clip;mvbw13:clip;mvfw13:clip;mvbw14:clip;mvfw14:clip;mvbw15:clip;mvfw15:clip;mvbw16:clip;mvfw16:clip;mvbw17:clip;mvfw17:clip;mvbw18:clip;mvfw18:clip;mvbw19:clip;mvfw19:clip;mvbw20:clip;mvfw20:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain21
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;mvbw4:clip;mvfw4:clip;mvbw5:clip;mvfw5:clip;mvbw6:clip;mvfw6:clip;mvbw7:clip;mvfw7:clip;mvbw8:clip;mvfw8:clip;mvbw9:clip;mvfw9:clip;mvbw10:clip;mvfw10:clip;mvbw11:clip;mvfw11:clip;mvbw12:clip;mvfw12:clip;mvbw13:clip;mvfw13:clip;mvbw14:clip;mvfw14:clip;mvbw15:clip;mvfw15:clip;mvbw16:clip;mvfw16:clip;mvbw17:clip;mvfw17:clip;mvbw18:clip;mvfw18:clip;mvbw19:clip;mvfw19:clip;mvbw20:clip;mvfw20:clip;mvbw21:clip;mvfw21:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain22
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;mvbw4:clip;mvfw4:clip;mvbw5:clip;mvfw5:clip;mvbw6:clip;mvfw6:clip;mvbw7:clip;mvfw7:clip;mvbw8:clip;mvfw8:clip;mvbw9:clip;mvfw9:clip;mvbw10:clip;mvfw10:clip;mvbw11:clip;mvfw11:clip;mvbw12:clip;mvfw12:clip;mvbw13:clip;mvfw13:clip;mvbw14:clip;mvfw14:clip;mvbw15:clip;mvfw15:clip;mvbw16:clip;mvfw16:clip;mvbw17:clip;mvfw17:clip;mvbw18:clip;mvfw18:clip;mvbw19:clip;mvfw19:clip;mvbw20:clip;mvfw20:clip;mvbw21:clip;mvfw21:clip;mvbw22:clip;mvfw22:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain23
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;mvbw4:clip;mvfw4:clip;mvbw5:clip;mvfw5:clip;mvbw6:clip;mvfw6:clip;mvbw7:clip;mvfw7:clip;mvbw8:clip;mvfw8:clip;mvbw9:clip;mvfw9:clip;mvbw10:clip;mvfw10:clip;mvbw11:clip;mvfw11:clip;mvbw12:clip;mvfw12:clip;mvbw13:clip;mvfw13:clip;mvbw14:clip;mvfw14:clip;mvbw15:clip;mvfw15:clip;mvbw16:clip;mvfw16:clip;mvbw17:clip;mvfw17:clip;mvbw18:clip;mvfw18:clip;mvbw19:clip;mvfw19:clip;mvbw20:clip;mvfw20:clip;mvbw21:clip;mvfw21:clip;mvbw22:clip;mvfw22:clip;mvbw23:clip;mvfw23:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain24
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;mvbw4:clip;mvfw4:clip;mvbw5:clip;mvfw5:clip;mvbw6:clip;mvfw6:clip;mvbw7:clip;mvfw7:clip;mvbw8:clip;mvfw8:clip;mvbw9:clip;mvfw9:clip;mvbw10:clip;mvfw10:clip;mvbw11:clip;mvfw11:clip;mvbw12:clip;mvfw12:clip;mvbw13:clip;mvfw13:clip;mvbw14:clip;mvfw14:clip;mvbw15:clip;mvfw15:clip;mvbw16:clip;mvfw16:clip;mvbw17:clip;mvfw17:clip;mvbw18:clip;mvfw18:clip;mvbw19:clip;mvfw19:clip;mvbw20:clip;mvfw20:clip;mvbw21:clip;mvfw21:clip;mvbw22:clip;mvfw22:clip;mvbw23:clip;mvfw23:clip;mvbw24:clip;mvfw24:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain3
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain4
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;mvbw4:clip;mvfw4:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain5
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;mvbw4:clip;mvfw4:clip;mvbw5:clip;mvfw5:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain6
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;mvbw4:clip;mvfw4:clip;mvbw5:clip;mvfw5:clip;mvbw6:clip;mvfw6:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain7
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;mvbw4:clip;mvfw4:clip;mvbw5:clip;mvfw5:clip;mvbw6:clip;mvfw6:clip;mvbw7:clip;mvfw7:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain8
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;mvbw4:clip;mvfw4:clip;mvbw5:clip;mvfw5:clip;mvbw6:clip;mvfw6:clip;mvbw7:clip;mvfw7:clip;mvbw8:clip;mvfw8:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Degrain9
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;mvbw4:clip;mvfw4:clip;mvbw5:clip;mvfw5:clip;mvbw6:clip;mvfw6:clip;mvbw7:clip;mvfw7:clip;mvbw8:clip;mvfw8:clip;mvbw9:clip;mvfw9:clip;thsad:float[]:opt;plane:int:opt;limit:float[]:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Finest
+        Function Definition: super:clip;
+      - Function Name: Flow
+        Function Definition: clip:clip;super:clip;vectors:clip;time:float:opt;mode:int:opt;fields:int:opt;thscd1:float:opt;thscd2:float:opt;tff:int:opt;
+      - Function Name: FlowBlur
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;blur:float:opt;prec:int:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: FlowFPS
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;num:int:opt;den:int:opt;mask:int:opt;ml:float:opt;blend:int:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: FlowInter
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;time:float:opt;ml:float:opt;blend:int:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Mask
+        Function Definition: clip:clip;vectors:clip;ml:float:opt;gamma:float:opt;kind:int:opt;time:float:opt;ysc:float:opt;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Recalculate
+        Function Definition: super:clip;vectors:clip;thsad:float:opt;smooth:int:opt;blksize:int:opt;blksizev:int:opt;search:int:opt;searchparam:int:opt;lambda:float:opt;chroma:int:opt;truemotion:int:opt;pnew:int:opt;overlap:int:opt;overlapv:int:opt;divide:int:opt;meander:int:opt;fields:int:opt;tff:int:opt;dct:int:opt;
+      - Function Name: SCDetection
+        Function Definition: clip:clip;vectors:clip;thscd1:float:opt;thscd2:float:opt;
+      - Function Name: Super
+        Function Definition: clip:clip;hpad:int:opt;vpad:int:opt;pel:int:opt;levels:int:opt;chroma:int:opt;sharp:int:opt;rfilter:int:opt;pelclip:clip:opt;
+
+
+
+Key: com.nodame.mvtools
+    Namespace: mv
+    Identifier: com.nodame.mvtools
+    Name: MVTools v20
+  - Functions: 
+      - Function Name: Analyse
+        Function Definition: super:clip;blksize:int:opt;blksizev:int:opt;levels:int:opt;search:int:opt;searchparam:int:opt;pelsearch:int:opt;isb:int:opt;lambda:int:opt;chroma:int:opt;delta:int:opt;truemotion:int:opt;lsad:int:opt;plevel:int:opt;global:int:opt;pnew:int:opt;pzero:int:opt;pglobal:int:opt;overlap:int:opt;overlapv:int:opt;divide:int:opt;badsad:int:opt;badrange:int:opt;opt:int:opt;meander:int:opt;trymany:int:opt;fields:int:opt;tff:int:opt;search_coarse:int:opt;dct:int:opt;
+      - Function Name: BlockFPS
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;num:int:opt;den:int:opt;mode:int:opt;ml:float:opt;blend:int:opt;thscd1:int:opt;thscd2:int:opt;opt:int:opt;
+      - Function Name: Compensate
+        Function Definition: clip:clip;super:clip;vectors:clip;scbehavior:int:opt;thsad:int:opt;fields:int:opt;time:float:opt;thscd1:int:opt;thscd2:int:opt;opt:int:opt;tff:int:opt;
+      - Function Name: Degrain1
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;thsad:int:opt;thsadc:int:opt;plane:int:opt;limit:int:opt;limitc:int:opt;thscd1:int:opt;thscd2:int:opt;opt:int:opt;
+      - Function Name: Degrain2
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;thsad:int:opt;thsadc:int:opt;plane:int:opt;limit:int:opt;limitc:int:opt;thscd1:int:opt;thscd2:int:opt;opt:int:opt;
+      - Function Name: Degrain3
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;mvbw2:clip;mvfw2:clip;mvbw3:clip;mvfw3:clip;thsad:int:opt;thsadc:int:opt;plane:int:opt;limit:int:opt;limitc:int:opt;thscd1:int:opt;thscd2:int:opt;opt:int:opt;
+      - Function Name: DepanAnalyse
+        Function Definition: clip:clip;vectors:clip;mask:clip:opt;zoom:int:opt;rot:int:opt;pixaspect:float:opt;error:float:opt;info:int:opt;wrong:float:opt;zerow:float:opt;thscd1:int:opt;thscd2:int:opt;fields:int:opt;tff:int:opt;
+      - Function Name: DepanCompensate
+        Function Definition: clip:clip;data:clip;offset:float:opt;subpixel:int:opt;pixaspect:float:opt;matchfields:int:opt;mirror:int:opt;blur:int:opt;info:int:opt;fields:int:opt;tff:int:opt;
+      - Function Name: DepanEstimate
+        Function Definition: clip:clip;trust:float:opt;winx:int:opt;winy:int:opt;wleft:int:opt;wtop:int:opt;dxmax:int:opt;dymax:int:opt;zoommax:float:opt;stab:float:opt;pixaspect:float:opt;info:int:opt;show:int:opt;fields:int:opt;tff:int:opt;
+      - Function Name: DepanStabilise
+        Function Definition: clip:clip;data:clip;cutoff:float:opt;damping:float:opt;initzoom:float:opt;addzoom:int:opt;prev:int:opt;next:int:opt;mirror:int:opt;blur:int:opt;dxmax:float:opt;dymax:float:opt;zoommax:float:opt;rotmax:float:opt;subpixel:int:opt;pixaspect:float:opt;fitlast:int:opt;tzoom:float:opt;info:int:opt;method:int:opt;fields:int:opt;
+      - Function Name: Finest
+        Function Definition: super:clip;opt:int:opt;
+      - Function Name: Flow
+        Function Definition: clip:clip;super:clip;vectors:clip;time:float:opt;mode:int:opt;fields:int:opt;thscd1:int:opt;thscd2:int:opt;opt:int:opt;tff:int:opt;
+      - Function Name: FlowBlur
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;blur:float:opt;prec:int:opt;thscd1:int:opt;thscd2:int:opt;opt:int:opt;
+      - Function Name: FlowFPS
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;num:int:opt;den:int:opt;mask:int:opt;ml:float:opt;blend:int:opt;thscd1:int:opt;thscd2:int:opt;opt:int:opt;
+      - Function Name: FlowInter
+        Function Definition: clip:clip;super:clip;mvbw:clip;mvfw:clip;time:float:opt;ml:float:opt;blend:int:opt;thscd1:int:opt;thscd2:int:opt;opt:int:opt;
+      - Function Name: Mask
+        Function Definition: clip:clip;vectors:clip;ml:float:opt;gamma:float:opt;kind:int:opt;time:float:opt;ysc:int:opt;thscd1:int:opt;thscd2:int:opt;opt:int:opt;
+      - Function Name: Recalculate
+        Function Definition: super:clip;vectors:clip;thsad:int:opt;smooth:int:opt;blksize:int:opt;blksizev:int:opt;search:int:opt;searchparam:int:opt;lambda:int:opt;chroma:int:opt;truemotion:int:opt;pnew:int:opt;overlap:int:opt;overlapv:int:opt;divide:int:opt;opt:int:opt;meander:int:opt;fields:int:opt;tff:int:opt;dct:int:opt;
+      - Function Name: SCDetection
+        Function Definition: clip:clip;vectors:clip;thscd1:int:opt;thscd2:int:opt;
+      - Function Name: Super
+        Function Definition: clip:clip;hpad:int:opt;vpad:int:opt;pel:int:opt;levels:int:opt;chroma:int:opt;sharp:int:opt;rfilter:int:opt;pelclip:clip:opt;opt:int:opt;
+
+
+
+Key: com.nodame.scrawl
+    Namespace: scrawl
+    Identifier: com.nodame.scrawl
+    Name: Simple text output plugin for VapourSynth
+  - Functions: 
+      - Function Name: ClipInfo
+        Function Definition: clip:clip;alignment:int:opt;
+      - Function Name: CoreInfo
+        Function Definition: clip:clip;alignment:int:opt;
+      - Function Name: FrameNum
+        Function Definition: clip:clip;alignment:int:opt;
+      - Function Name: FrameProps
+        Function Definition: clip:clip;alignment:int:opt;
+      - Function Name: Text
+        Function Definition: clip:clip;text:data;alignment:int:opt;
+
+
+
+Key: com.nodame.scxvid
+    Namespace: scxvid
+    Identifier: com.nodame.scxvid
+    Name: VapourSynth Scxvid Plugin
+  - Functions: 
+      - Function Name: Scxvid
+        Function Definition: clip:clip;log:data:opt;use_slices:int:opt
+
+
+
+Key: com.nodame.smoothuv
+    Namespace: smoothuv
+    Identifier: com.nodame.smoothuv
+    Name: SmoothUV is a spatial derainbow filter
+  - Functions: 
+      - Function Name: SmoothUV
+        Function Definition: clip:clip;radius:int:opt;threshold:int:opt;interlaced:int:opt;
+
+
+
+Key: com.nodame.ssiq
+    Namespace: ssiq
+    Identifier: com.nodame.ssiq
+    Name: SSIQ plugin for VapourSynth
+  - Functions: 
+      - Function Name: SSIQ
+        Function Definition: clip:clip;diameter:int:opt;strength:int:opt;interlaced:int:opt;
+
+
+
+Key: com.nodame.tcomb
+    Namespace: tcomb
+    Identifier: com.nodame.tcomb
+    Name: Dotcrawl and rainbow remover
+  - Functions: 
+      - Function Name: TComb
+        Function Definition: clip:clip;mode:int:opt;fthreshl:int:opt;fthreshc:int:opt;othreshl:int:opt;othreshc:int:opt;map:int:opt;scthresh:float:opt;
+
+
+
+Key: com.nodame.temporalmedian
+    Namespace: tmedian
+    Identifier: com.nodame.temporalmedian
+    Name: Calculates temporal median
+  - Functions: 
+      - Function Name: TemporalMedian
+        Function Definition: clip:clip;radius:int:opt;planes:int[]:opt;
+
+
+
+Key: com.nodame.videoscope
+    Namespace: vscope
+    Identifier: com.nodame.videoscope
+    Name: Videoscope plugin for VapourSynth
+  - Functions: 
+      - Function Name: Scope
+        Function Definition: clip:clip;mode:data:opt;tickmarks:int:opt;side:data:opt;bottom:data:opt;corner:data:opt;
+
+
+
+Key: chikuzen.does.not.have.his.own.domain.avsr
+    Namespace: avsr
+    Identifier: chikuzen.does.not.have.his.own.domain.avsr
+    Name: AviSynth Script Reader for VapourSynth v1.0.0
+  - Functions: 
+      - Function Name: Eval
+        Function Definition: lines:data;bitdepth:int:opt;alpha:int:opt;
+      - Function Name: Import
+        Function Definition: script:data;bitdepth:int:opt;alpha:int:opt;
+
+
+
+Key: com.nodame.wwxd
+    Namespace: wwxd
+    Identifier: com.nodame.wwxd
+    Name: Scene change detection approximately like Xvid's
+  - Functions: 
+      - Function Name: WWXD
+        Function Definition: clip:clip;
+
+
+
+Key: com.sharpeners.minsrp
+    Namespace: minsrp
+    Identifier: com.sharpeners.minsrp
+    Name: VapourSynth MinSRP Filter
+  - Functions: 
+      - Function Name: Sharp
+        Function Definition: clip:clip;str:float[]:opt;mode:int[]:opt;linear:int[]:opt
+
+
+
+Key: com.sources.d2vsource
+    Namespace: d2v
+    Identifier: com.sources.d2vsource
+    Name: D2V Source
+  - Functions: 
+      - Function Name: ApplyRFF
+        Function Definition: clip:clip;d2v:data;
+      - Function Name: Source
+        Function Definition: input:data;threads:int:opt;nocrop:int:opt;rff:int:opt;
+
+
+
+Key: com.svp-team.flow1
+    Namespace: svp1
+    Identifier: com.svp-team.flow1
+    Name: SVPFlow1
+  - Functions: 
+      - Function Name: Analyse
+        Function Definition: clip:clip;sdata:int;src:clip;opt:data
+      - Function Name: Super
+        Function Definition: clip:clip;opt:data
+
+
+
+Key: com.svp-team.flow2
+    Namespace: svp2
+    Identifier: com.svp-team.flow2
+    Name: SVPFlow2
+  - Functions: 
+      - Function Name: SmoothFps
+        Function Definition: clip:clip;super:clip;sdata:int;vectors:clip;vdata:int;opt:data;src:clip:opt;fps:float:opt
+
+
+
+Key: com.vapoursynth.SB
+    Namespace: surfaceblur
+    Identifier: com.vapoursynth.SB
+    Name: surface blur
+  - Functions: 
+      - Function Name: surfaceblur
+        Function Definition: input:clip;threshold:float:opt;radius:int:opt;
+
+
+
+Key: com.vapoursynth.avisource
+    Namespace: avisource
+    Identifier: com.vapoursynth.avisource
+    Name: VapourSynth AVISource Port
+  - Functions: 
+      - Function Name: AVIFileSource
+        Function Definition: path:data[];pixel_type:data:opt;fourcc:data:opt;alpha:int:opt;
+      - Function Name: AVISource
+        Function Definition: path:data[];pixel_type:data:opt;fourcc:data:opt;alpha:int:opt;
+      - Function Name: OpenDMLSource
+        Function Definition: path:data[];pixel_type:data:opt;fourcc:data:opt;alpha:int:opt;
+
+
+
+Key: com.vapoursynth.avisynth
+    Namespace: avs
+    Identifier: com.vapoursynth.avisynth
+    Name: VapourSynth Avisynth Compatibility
+  - Functions: 
+      - Function Name: LoadPlugin
+        Function Definition: path:data;
+
+
+
+Key: com.vapoursynth.bm3d
+    Namespace: bm3d
+    Identifier: com.vapoursynth.bm3d
+    Name: Implementation of BM3D denoising filter for VapourSynth.
+  - Functions: 
+      - Function Name: Basic
+        Function Definition: input:clip;ref:clip:opt;profile:data:opt;sigma:float[]:opt;block_size:int:opt;block_step:int:opt;group_size:int:opt;bm_range:int:opt;bm_step:int:opt;th_mse:float:opt;hard_thr:float:opt;matrix:int:opt;
+      - Function Name: Final
+        Function Definition: input:clip;ref:clip;profile:data:opt;sigma:float[]:opt;block_size:int:opt;block_step:int:opt;group_size:int:opt;bm_range:int:opt;bm_step:int:opt;th_mse:float:opt;matrix:int:opt;
+      - Function Name: OPP2RGB
+        Function Definition: input:clip;sample:int:opt;
+      - Function Name: RGB2OPP
+        Function Definition: input:clip;sample:int:opt;
+      - Function Name: VAggregate
+        Function Definition: input:clip;radius:int:opt;sample:int:opt;
+      - Function Name: VBasic
+        Function Definition: input:clip;ref:clip:opt;profile:data:opt;sigma:float[]:opt;radius:int:opt;block_size:int:opt;block_step:int:opt;group_size:int:opt;bm_range:int:opt;bm_step:int:opt;ps_num:int:opt;ps_range:int:opt;ps_step:int:opt;th_mse:float:opt;hard_thr:float:opt;matrix:int:opt;
+      - Function Name: VFinal
+        Function Definition: input:clip;ref:clip;profile:data:opt;sigma:float[]:opt;radius:int:opt;block_size:int:opt;block_step:int:opt;group_size:int:opt;bm_range:int:opt;bm_step:int:opt;ps_num:int:opt;ps_range:int:opt;ps_step:int:opt;th_mse:float:opt;matrix:int:opt;
+
+
+
+Key: com.vapoursynth.dghdrtosdr
+    Namespace: dghdrtosdr
+    Identifier: com.vapoursynth.dghdrtosdr
+    Name: Convert HDR to SDR
+  - Functions: 
+      - Function Name: DGHDRtoSDR
+        Function Definition: clip:clip;light:float:opt;gamma:float:opt;hue:float:opt;sat:float:opt;tm:float:opt;roll:float:opt;fulldepth:int:opt;impl:data:opt
+
+
+
+Key: chikuzen.does.not.have.his.own.domain.combmask
+    Namespace: comb
+    Identifier: chikuzen.does.not.have.his.own.domain.combmask
+    Name: comb filters v0.0.1
+  - Functions: 
+      - Function Name: CMaskedMerge
+        Function Definition: base:clip;alt:clip;mask:clip;planes:int[]:opt;
+      - Function Name: CombMask
+        Function Definition: clip:clip;cthresh:int:opt;mthresh:int:opt;mi:int:opt;planes:int[]:opt;
+
+
+
+Key: com.vapoursynth.dotkill
+    Namespace: dotkill
+    Identifier: com.vapoursynth.dotkill
+    Name: VapourSynth DotKill
+  - Functions: 
+      - Function Name: DotKill
+        Function Definition: clip:clip;napply:int:opt;ignorematch:int:opt;
+
+
+
+Key: com.vapoursynth.eedi3
+    Namespace: eedi3
+    Identifier: com.vapoursynth.eedi3
+    Name: EEDI3
+  - Functions: 
+      - Function Name: eedi3
+        Function Definition: clip:clip;field:int;dh:int:opt;planes:int[]:opt;alpha:float:opt;beta:float:opt;gamma:float:opt;nrad:int:opt;mdis:int:opt;hp:int:opt;ucubic:int:opt;cost3:int:opt;vcheck:int:opt;vthresh0:float:opt;vthresh1:float:opt;vthresh2:float:opt;sclip:clip:opt;
+
+
+
+Key: com.vapoursynth.ffms2
+    Namespace: ffms2
+    Identifier: com.vapoursynth.ffms2
+    Name: FFmpegSource 2 for VapourSynth
+  - Functions: 
+      - Function Name: GetLogLevel
+        Function Definition: 
+      - Function Name: Index
+        Function Definition: source:data;cachefile:data:opt;indextracks:int[]:opt;errorhandling:int:opt;overwrite:int:opt;
+      - Function Name: SetLogLevel
+        Function Definition: level:int;
+      - Function Name: Source
+        Function Definition: source:data;track:int:opt;cache:int:opt;cachefile:data:opt;fpsnum:int:opt;fpsden:int:opt;threads:int:opt;timecodes:data:opt;seekmode:int:opt;width:int:opt;height:int:opt;resizer:data:opt;format:int:opt;alpha:int:opt;
+      - Function Name: Version
+        Function Definition: 
+
+
+
+Key: com.vapoursynth.focus
+    Namespace: focus
+    Identifier: com.vapoursynth.focus
+    Name: VapourSynth Pixel Restoration Filters
+  - Functions: 
+      - Function Name: SpatialSoften
+        Function Definition: clip:clip;radius:int:opt;luma_threshold:float:opt;chroma_threshold:float:opt
+      - Function Name: TemporalSoften
+        Function Definition: clip:clip;radius:int:opt;luma_threshold:float:opt;chroma_threshold:float:opt;scenechange:float:opt
+
+
+
+Key: com.vapoursynth.hqdn3d
+    Namespace: hqdn3d
+    Identifier: com.vapoursynth.hqdn3d
+    Name: HQDn3D port as used in avisynth/mplayer
+  - Functions: 
+      - Function Name: Hqdn3d
+        Function Definition: clip:clip;lum_spac:float:opt;chrom_spac:float:opt;lum_tmp:float:opt;chrom_tmp:float:opt;restart_lap:int:opt;
+
+
+
+Key: com.vapoursynth.imwri
+    Namespace: imwri
+    Identifier: com.vapoursynth.imwri
+    Name: VapourSynth ImageMagick 7 HDRI Writer/Reader
+  - Functions: 
+      - Function Name: Read
+        Function Definition: filename:data[];firstnum:int:opt;mismatch:int:opt;alpha:int:opt;float_output:int:opt;
+      - Function Name: Write
+        Function Definition: clip:clip;imgformat:data;filename:data;firstnum:int:opt;quality:int:opt;dither:int:opt;compression_type:data:opt;overwrite:int:opt;alpha:clip:opt;
+
+
+
+Key: com.vapoursynth.misc
+    Namespace: misc
+    Identifier: com.vapoursynth.misc
+    Name: Miscellaneous filters
+  - Functions: 
+      - Function Name: AverageFrames
+        Function Definition: clips:clip[];weights:float[];scale:float:opt;scenechange:int:opt;planes:int[]:opt;
+      - Function Name: Hysteresis
+        Function Definition: clipa:clip;clipb:clip;planes:int[]:opt;
+      - Function Name: SCDetect
+        Function Definition: clip:clip;threshold:float:opt;
+
+
+
+Key: com.vapoursynth.removegrainsf
+    Namespace: rgsf
+    Identifier: com.vapoursynth.removegrainsf
+    Name: RemoveGrain Single Precision
+  - Functions: 
+      - Function Name: BackwardClense
+        Function Definition: clip:clip;planes:int[]:opt;
+      - Function Name: Clense
+        Function Definition: clip:clip;previous:clip:opt;next:clip:opt;planes:int[]:opt;
+      - Function Name: ForwardClense
+        Function Definition: clip:clip;planes:int[]:opt;
+      - Function Name: RemoveGrain
+        Function Definition: clip:clip;mode:int[];
+      - Function Name: Repair
+        Function Definition: clip:clip;repairclip:clip;mode:int[];
+      - Function Name: VerticalCleaner
+        Function Definition: clip:clip;mode:int[];
+
+
+
+Key: com.vapoursynth.removegrainvs
+    Namespace: rgvs
+    Identifier: com.vapoursynth.removegrainvs
+    Name: RemoveGrain VapourSynth Port
+  - Functions: 
+      - Function Name: BackwardClense
+        Function Definition: clip:clip;planes:int[]:opt;
+      - Function Name: Clense
+        Function Definition: clip:clip;previous:clip:opt;next:clip:opt;planes:int[]:opt;
+      - Function Name: ForwardClense
+        Function Definition: clip:clip;planes:int[]:opt;
+      - Function Name: RemoveGrain
+        Function Definition: clip:clip;mode:int[];
+      - Function Name: Repair
+        Function Definition: clip:clip;repairclip:clip;mode:int[];
+      - Function Name: VerticalCleaner
+        Function Definition: clip:clip;mode:int[];
+
+
+
+Key: com.vapoursynth.resize
+    Namespace: resize
+    Identifier: com.vapoursynth.resize
+    Name: VapourSynth Resize
+  - Functions: 
+      - Function Name: Bicubic
+        Function Definition: clip:clip;width:int:opt;height:int:opt;format:int:opt;matrix:int:opt;matrix_s:data:opt;transfer:int:opt;transfer_s:data:opt;primaries:int:opt;primaries_s:data:opt;range:int:opt;range_s:data:opt;chromaloc:int:opt;chromaloc_s:data:opt;matrix_in:int:opt;matrix_in_s:data:opt;transfer_in:int:opt;transfer_in_s:data:opt;primaries_in:int:opt;primaries_in_s:data:opt;range_in:int:opt;range_in_s:data:opt;chromaloc_in:int:opt;chromaloc_in_s:data:opt;filter_param_a:float:opt;filter_param_b:float:opt;resample_filter_uv:data:opt;filter_param_a_uv:float:opt;filter_param_b_uv:float:opt;dither_type:data:opt;cpu_type:data:opt;prefer_props:int:opt;src_left:float:opt;src_top:float:opt;src_width:float:opt;src_height:float:opt;nominal_luminance:float:opt;
+      - Function Name: Bilinear
+        Function Definition: clip:clip;width:int:opt;height:int:opt;format:int:opt;matrix:int:opt;matrix_s:data:opt;transfer:int:opt;transfer_s:data:opt;primaries:int:opt;primaries_s:data:opt;range:int:opt;range_s:data:opt;chromaloc:int:opt;chromaloc_s:data:opt;matrix_in:int:opt;matrix_in_s:data:opt;transfer_in:int:opt;transfer_in_s:data:opt;primaries_in:int:opt;primaries_in_s:data:opt;range_in:int:opt;range_in_s:data:opt;chromaloc_in:int:opt;chromaloc_in_s:data:opt;filter_param_a:float:opt;filter_param_b:float:opt;resample_filter_uv:data:opt;filter_param_a_uv:float:opt;filter_param_b_uv:float:opt;dither_type:data:opt;cpu_type:data:opt;prefer_props:int:opt;src_left:float:opt;src_top:float:opt;src_width:float:opt;src_height:float:opt;nominal_luminance:float:opt;
+      - Function Name: Lanczos
+        Function Definition: clip:clip;width:int:opt;height:int:opt;format:int:opt;matrix:int:opt;matrix_s:data:opt;transfer:int:opt;transfer_s:data:opt;primaries:int:opt;primaries_s:data:opt;range:int:opt;range_s:data:opt;chromaloc:int:opt;chromaloc_s:data:opt;matrix_in:int:opt;matrix_in_s:data:opt;transfer_in:int:opt;transfer_in_s:data:opt;primaries_in:int:opt;primaries_in_s:data:opt;range_in:int:opt;range_in_s:data:opt;chromaloc_in:int:opt;chromaloc_in_s:data:opt;filter_param_a:float:opt;filter_param_b:float:opt;resample_filter_uv:data:opt;filter_param_a_uv:float:opt;filter_param_b_uv:float:opt;dither_type:data:opt;cpu_type:data:opt;prefer_props:int:opt;src_left:float:opt;src_top:float:opt;src_width:float:opt;src_height:float:opt;nominal_luminance:float:opt;
+      - Function Name: Point
+        Function Definition: clip:clip;width:int:opt;height:int:opt;format:int:opt;matrix:int:opt;matrix_s:data:opt;transfer:int:opt;transfer_s:data:opt;primaries:int:opt;primaries_s:data:opt;range:int:opt;range_s:data:opt;chromaloc:int:opt;chromaloc_s:data:opt;matrix_in:int:opt;matrix_in_s:data:opt;transfer_in:int:opt;transfer_in_s:data:opt;primaries_in:int:opt;primaries_in_s:data:opt;range_in:int:opt;range_in_s:data:opt;chromaloc_in:int:opt;chromaloc_in_s:data:opt;filter_param_a:float:opt;filter_param_b:float:opt;resample_filter_uv:data:opt;filter_param_a_uv:float:opt;filter_param_b_uv:float:opt;dither_type:data:opt;cpu_type:data:opt;prefer_props:int:opt;src_left:float:opt;src_top:float:opt;src_width:float:opt;src_height:float:opt;nominal_luminance:float:opt;
+      - Function Name: Spline16
+        Function Definition: clip:clip;width:int:opt;height:int:opt;format:int:opt;matrix:int:opt;matrix_s:data:opt;transfer:int:opt;transfer_s:data:opt;primaries:int:opt;primaries_s:data:opt;range:int:opt;range_s:data:opt;chromaloc:int:opt;chromaloc_s:data:opt;matrix_in:int:opt;matrix_in_s:data:opt;transfer_in:int:opt;transfer_in_s:data:opt;primaries_in:int:opt;primaries_in_s:data:opt;range_in:int:opt;range_in_s:data:opt;chromaloc_in:int:opt;chromaloc_in_s:data:opt;filter_param_a:float:opt;filter_param_b:float:opt;resample_filter_uv:data:opt;filter_param_a_uv:float:opt;filter_param_b_uv:float:opt;dither_type:data:opt;cpu_type:data:opt;prefer_props:int:opt;src_left:float:opt;src_top:float:opt;src_width:float:opt;src_height:float:opt;nominal_luminance:float:opt;
+      - Function Name: Spline36
+        Function Definition: clip:clip;width:int:opt;height:int:opt;format:int:opt;matrix:int:opt;matrix_s:data:opt;transfer:int:opt;transfer_s:data:opt;primaries:int:opt;primaries_s:data:opt;range:int:opt;range_s:data:opt;chromaloc:int:opt;chromaloc_s:data:opt;matrix_in:int:opt;matrix_in_s:data:opt;transfer_in:int:opt;transfer_in_s:data:opt;primaries_in:int:opt;primaries_in_s:data:opt;range_in:int:opt;range_in_s:data:opt;chromaloc_in:int:opt;chromaloc_in_s:data:opt;filter_param_a:float:opt;filter_param_b:float:opt;resample_filter_uv:data:opt;filter_param_a_uv:float:opt;filter_param_b_uv:float:opt;dither_type:data:opt;cpu_type:data:opt;prefer_props:int:opt;src_left:float:opt;src_top:float:opt;src_width:float:opt;src_height:float:opt;nominal_luminance:float:opt;
+
+
+
+Key: chikuzen.does.not.have.his.own.domain.focus2
+    Namespace: focus2
+    Identifier: chikuzen.does.not.have.his.own.domain.focus2
+    Name: VapourSynth TemporalSoften Filter v1
+  - Functions: 
+      - Function Name: TemporalSoften2
+        Function Definition: clip:clip;radius:int:opt;luma_threshold:int:opt;chroma_threshold:int:opt;scenechange:int:opt;mode:int:opt;
+
+
+
+Key: com.vapoursynth.retinex
+    Namespace: retinex
+    Identifier: com.vapoursynth.retinex
+    Name: Implementation of Retinex algorithm for VapourSynth.
+  - Functions: 
+      - Function Name: MSRCP
+        Function Definition: input:clip;sigma:float[]:opt;lower_thr:float:opt;upper_thr:float:opt;fulls:int:opt;fulld:int:opt;chroma_protect:float:opt
+      - Function Name: MSRCR
+        Function Definition: input:clip;sigma:float[]:opt;lower_thr:float:opt;upper_thr:float:opt;fulls:int:opt;fulld:int:opt;restore:float:opt
+
+
+
+Key: com.vapoursynth.std
+    Namespace: std
+    Identifier: com.vapoursynth.std
+    Name: VapourSynth Core Functions
+  - Functions: 
+      - Function Name: AddBorders
+        Function Definition: clip:clip;left:int:opt;right:int:opt;top:int:opt;bottom:int:opt;color:float[]:opt;
+      - Function Name: AssumeFPS
+        Function Definition: clip:clip;src:clip:opt;fpsnum:int:opt;fpsden:int:opt;
+      - Function Name: Binarize
+        Function Definition: clip:clip;threshold:float[]:opt;v0:float[]:opt;v1:float[]:opt;planes:int[]:opt;
+      - Function Name: BlankClip
+        Function Definition: clip:clip:opt;width:int:opt;height:int:opt;format:int:opt;length:int:opt;fpsnum:int:opt;fpsden:int:opt;color:float[]:opt;keep:int:opt;
+      - Function Name: BoxBlur
+        Function Definition: clip:clip;planes:int[]:opt;hradius:int:opt;hpasses:int:opt;vradius:int:opt;vpasses:int:opt;
+      - Function Name: Cache
+        Function Definition: clip:clip;size:int:opt;fixed:int:opt;make_linear:int:opt;
+      - Function Name: ClipToProp
+        Function Definition: clip:clip;mclip:clip;prop:data:opt;
+      - Function Name: Convolution
+        Function Definition: clip:clip;matrix:float[];bias:float:opt;divisor:float:opt;planes:int[]:opt;saturate:int:opt;mode:data:opt;
+      - Function Name: Crop
+        Function Definition: clip:clip;left:int:opt;right:int:opt;top:int:opt;bottom:int:opt;
+      - Function Name: CropAbs
+        Function Definition: clip:clip;width:int;height:int;left:int:opt;top:int:opt;x:int:opt;y:int:opt;
+      - Function Name: CropRel
+        Function Definition: clip:clip;left:int:opt;right:int:opt;top:int:opt;bottom:int:opt;
+      - Function Name: Deflate
+        Function Definition: clip:clip;planes:int[]:opt;threshold:float:opt;
+      - Function Name: DeleteFrames
+        Function Definition: clip:clip;frames:int[];
+      - Function Name: DoubleWeave
+        Function Definition: clip:clip;tff:int:opt;
+      - Function Name: DuplicateFrames
+        Function Definition: clip:clip;frames:int[];
+      - Function Name: Expr
+        Function Definition: clips:clip[];expr:data[];format:int:opt;
+      - Function Name: FlipHorizontal
+        Function Definition: clip:clip;
+      - Function Name: FlipVertical
+        Function Definition: clip:clip;
+      - Function Name: FrameEval
+        Function Definition: clip:clip;eval:func;prop_src:clip[]:opt;
+      - Function Name: FreezeFrames
+        Function Definition: clip:clip;first:int[];last:int[];replacement:int[];
+      - Function Name: Inflate
+        Function Definition: clip:clip;planes:int[]:opt;threshold:float:opt;
+      - Function Name: Interleave
+        Function Definition: clips:clip[];extend:int:opt;mismatch:int:opt;
+      - Function Name: Invert
+        Function Definition: clip:clip;planes:int[]:opt;
+      - Function Name: Levels
+        Function Definition: clip:clip;min_in:float[]:opt;max_in:float[]:opt;gamma:float[]:opt;min_out:float[]:opt;max_out:float[]:opt;planes:int[]:opt;
+      - Function Name: Limiter
+        Function Definition: clip:clip;min:float[]:opt;max:float[]:opt;planes:int[]:opt;
+      - Function Name: LoadPlugin
+        Function Definition: path:data;altsearchpath:int:opt;forcens:data:opt;forceid:data:opt;
+      - Function Name: Loop
+        Function Definition: clip:clip;times:int:opt;
+      - Function Name: Lut
+        Function Definition: clip:clip;planes:int[]:opt;lut:int[]:opt;lutf:float[]:opt;function:func:opt;bits:int:opt;floatout:int:opt;
+      - Function Name: Lut2
+        Function Definition: clipa:clip;clipb:clip;planes:int[]:opt;lut:int[]:opt;lutf:float[]:opt;function:func:opt;bits:int:opt;floatout:int:opt;
+      - Function Name: MakeDiff
+        Function Definition: clipa:clip;clipb:clip;planes:int[]:opt;
+      - Function Name: MaskedMerge
+        Function Definition: clipa:clip;clipb:clip;mask:clip;planes:int[]:opt;first_plane:int:opt;premultiplied:int:opt;
+      - Function Name: Maximum
+        Function Definition: clip:clip;planes:int[]:opt;threshold:float:opt;coordinates:int[]:opt;
+      - Function Name: Median
+        Function Definition: clip:clip;planes:int[]:opt;
+      - Function Name: Merge
+        Function Definition: clipa:clip;clipb:clip;weight:float[]:opt;
+      - Function Name: MergeDiff
+        Function Definition: clipa:clip;clipb:clip;planes:int[]:opt;
+      - Function Name: Minimum
+        Function Definition: clip:clip;planes:int[]:opt;threshold:float:opt;coordinates:int[]:opt;
+      - Function Name: ModifyFrame
+        Function Definition: clip:clip;clips:clip[];selector:func;
+      - Function Name: PEMVerifier
+        Function Definition: clip:clip;upper:float[]:opt;lower:float[]:opt;
+      - Function Name: PlaneStats
+        Function Definition: clipa:clip;clipb:clip:opt;plane:int:opt;prop:data:opt;
+      - Function Name: PreMultiply
+        Function Definition: clip:clip;alpha:clip;
+      - Function Name: Prewitt
+        Function Definition: clip:clip;planes:int[]:opt;scale:float:opt;
+      - Function Name: PropToClip
+        Function Definition: clip:clip;prop:data:opt;
+      - Function Name: Reverse
+        Function Definition: clip:clip;
+      - Function Name: SelectEvery
+        Function Definition: clip:clip;cycle:int;offsets:int[];
+      - Function Name: SeparateFields
+        Function Definition: clip:clip;tff:int:opt;
+      - Function Name: SetFieldBased
+        Function Definition: clip:clip;value:int;
+      - Function Name: SetFrameProp
+        Function Definition: clip:clip;prop:data;delete:int:opt;intval:int[]:opt;floatval:float[]:opt;data:data[]:opt;
+      - Function Name: ShufflePlanes
+        Function Definition: clips:clip[];planes:int[];colorfamily:int;
+      - Function Name: Sobel
+        Function Definition: clip:clip;planes:int[]:opt;scale:float:opt;
+      - Function Name: Splice
+        Function Definition: clips:clip[];mismatch:int:opt;
+      - Function Name: StackHorizontal
+        Function Definition: clips:clip[];
+      - Function Name: StackVertical
+        Function Definition: clips:clip[];
+      - Function Name: Transpose
+        Function Definition: clip:clip;
+      - Function Name: Trim
+        Function Definition: clip:clip;first:int:opt;last:int:opt;length:int:opt;
+      - Function Name: Turn180
+        Function Definition: clip:clip;
+
+
+
+Key: com.vapoursynth.text
+    Namespace: text
+    Identifier: com.vapoursynth.text
+    Name: VapourSynth Text
+  - Functions: 
+      - Function Name: ClipInfo
+        Function Definition: clip:clip;alignment:int:opt;
+      - Function Name: CoreInfo
+        Function Definition: clip:clip:opt;alignment:int:opt;
+      - Function Name: FrameNum
+        Function Definition: clip:clip;alignment:int:opt;
+      - Function Name: FrameProps
+        Function Definition: clip:clip;props:data[]:opt;alignment:int:opt;
+      - Function Name: Text
+        Function Definition: clip:clip;text:data;alignment:int:opt;
+
+
+
+Key: com.wolframrhodium.bilateralGPU
+    Namespace: bilateralgpu
+    Identifier: com.wolframrhodium.bilateralGPU
+    Name: Bilateral filter using CUDA
+  - Functions: 
+      - Function Name: Bilateral
+        Function Definition: clip:clip;sigma_spatial:float[]:opt;sigma_color:float[]:opt;planes:int[]:opt;kernel_size:int[]:opt;borderMode:int[]:opt;device:int[]:opt
+
+
+
+Key: com.xekon.gradcurve
+    Namespace: grad
+    Identifier: com.xekon.gradcurve
+    Name: Adjustment of contrast, brightness, gamma and a wide range of color manipulations through gradation curves is possible.
+  - Functions: 
+      - Function Name: Curve
+        Function Definition: clip:clip;fname:data:opt;ftype:int:opt;pmode:int:opt;
+
+
+
+Key: com.xy.vsfilter
+    Namespace: xyvsf
+    Identifier: com.xy.vsfilter
+    Name: xy-VSFilter
+  - Functions: 
+      - Function Name: TextSub
+        Function Definition: clip:clip;file:data;charset:int:opt;fps:float:opt;vfr:data:opt;swapuv:int:opt;
+      - Function Name: VobSub
+        Function Definition: clip:clip;file:data;swapuv:int:opt;
+
+
+
+Key: day.simultaneous.4
+    Namespace: timecube
+    Identifier: day.simultaneous.4
+    Name: TimeCube 4D
+  - Functions: 
+      - Function Name: Cube
+        Function Definition: clip:clip;cube:data;format:int:opt;range:int:opt;cpu:int:opt;
+
+
+
+Key: denoising.temporal.templinearapproximate
+    Namespace: tla
+    Identifier: denoising.temporal.templinearapproximate
+    Name: VapourSynth Temporal Linear Approximation plugin
+  - Functions: 
+      - Function Name: TempLinearApproximate
+        Function Definition: clip:clip;radius:int:opt;planes:int[]:opt:empty;gamma:int:opt;
+
+
+
+Key: filter.indirect.dct
+    Namespace: dct
+    Identifier: filter.indirect.dct
+    Name: DCT filtering plugin rev10-b311e2e
+  - Functions: 
+      - Function Name: Filter
+        Function Definition: clip:clip;factors:float[];
+
+
+
+Key: fmtconv
+    Namespace: fmtc
+    Identifier: fmtconv
+    Name: Format converter, r20
+  - Functions: 
+      - Function Name: bitdepth
+        Function Definition: clip:clip;csp:int:opt;bits:int:opt;flt:int:opt;planes:int[]:opt;fulls:int:opt;fulld:int:opt;dmode:int:opt;ampo:float:opt;ampn:float:opt;dyn:int:opt;staticnoise:int:opt;cpuopt:int:opt;patsize:int:opt;
+      - Function Name: histluma
+        Function Definition: clip:clip;full:int:opt;amp:int:opt;
+      - Function Name: matrix
+        Function Definition: clip:clip;mat:data:opt;mats:data:opt;matd:data:opt;fulls:int:opt;fulld:int:opt;coef:float[]:opt;csp:int:opt;col_fam:int:opt;bits:int:opt;singleout:int:opt;cpuopt:int:opt;
+      - Function Name: matrix2020cl
+        Function Definition: clip:clip;full:int:opt;csp:int:opt;bits:int:opt;cpuopt:int:opt;
+      - Function Name: nativetostack16
+        Function Definition: clip:clip;
+      - Function Name: primaries
+        Function Definition: clip:clip;rs:float[]:opt;gs:float[]:opt;bs:float[]:opt;ws:float[]:opt;rd:float[]:opt;gd:float[]:opt;bd:float[]:opt;wd:float[]:opt;prims:data:opt;primd:data:opt;cpuopt:int:opt;
+      - Function Name: resample
+        Function Definition: clip:clip;w:int:opt;h:int:opt;sx:float[]:opt;sy:float[]:opt;sw:float[]:opt;sh:float[]:opt;scale:float:opt;scaleh:float:opt;scalev:float:opt;kernel:data[]:opt;kernelh:data[]:opt;kernelv:data[]:opt;impulse:float[]:opt;impulseh:float[]:opt;impulsev:float[]:opt;taps:int[]:opt;tapsh:int[]:opt;tapsv:int[]:opt;a1:float[]:opt;a2:float[]:opt;a3:float[]:opt;kovrspl:int[]:opt;fh:float[]:opt;fv:float[]:opt;cnorm:int[]:opt;totalh:float[]:opt;totalv:float[]:opt;invks:int[]:opt;invksh:int[]:opt;invksv:int[]:opt;invkstaps:int[]:opt;invkstapsh:int[]:opt;invkstapsv:int[]:opt;csp:int:opt;css:data:opt;planes:float[]:opt;fulls:int:opt;fulld:int:opt;center:int[]:opt;cplace:data:opt;cplaces:data:opt;cplaced:data:opt;interlaced:int:opt;interlacedd:int:opt;tff:int:opt;tffd:int:opt;flt:int:opt;cpuopt:int:opt;
+      - Function Name: stack16tonative
+        Function Definition: clip:clip;
+      - Function Name: transfer
+        Function Definition: clip:clip;transs:data[]:opt;transd:data[]:opt;cont:float:opt;gcor:float:opt;bits:int:opt;flt:int:opt;fulls:int:opt;fulld:int:opt;cpuopt:int:opt;blacklvl:float:opt;
+
+
+

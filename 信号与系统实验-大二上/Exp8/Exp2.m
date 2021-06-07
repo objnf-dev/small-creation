@@ -1,0 +1,14 @@
+clc;
+clear;
+b = [2, 5, 9, 5, 3];
+a = [5, 45, 2, 1, 1];
+n = (-3: 0.01: 3);
+h = freqz(b, a, n);
+subplot(2, 1, 1);
+plot(n, abs(h));
+grid;
+title('·ù¶ÈÆ×');
+subplot(2, 1, 2);
+plot(n, angle(h));
+grid;
+title('ÏàÎ»Æ×');

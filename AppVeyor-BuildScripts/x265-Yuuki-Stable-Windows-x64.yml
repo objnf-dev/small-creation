@@ -1,0 +1,73 @@
+version: Yuuki-{build}
+image: Visual Studio 2017
+configuration: Release
+platform: x64
+clone_folder: C:\projects\x265\stable
+init:
+- cmd: >-
+    cd ..
+
+    md nasm
+
+    cd nasm
+
+    appveyor DownloadFile https://www.nasm.us/pub/nasm/releasebuilds/2.15.03/win64/nasm-2.15.03-win64.zip -FileName nasm.zip
+
+    7z e -y nasm.zip
+
+    set PATH=%PATH%;%cd%\nasm
+install:
+- cmd: >-
+    md C:\projects\x265\Yuuki\8bit
+
+    cd C:\projects\x265\Yuuki\8bit
+
+    cmake -G "Visual Studio 15 Win64" C:\projects\x265\stable\source -DENABLE_SHARED=OFF -DSTATIC_LINK_CRT=ON -DENABLE_CLI=ON
+
+    md C:\projects\x265\Yuuki\10bit
+
+    cd C:\projects\x265\Yuuki\10bit
+
+    cmake -G "Visual Studio 15 Win64" C:\projects\x265\stable\source -DENABLE_SHARED=OFF -DSTATIC_LINK_CRT=ON -DENABLE_CLI=ON -DHIGH_BIT_DEPTH=ON -DMAIN12=OFF
+
+    md C:\projects\x265\Yuuki\12bit
+
+    cd C:\projects\x265\Yuuki\12bit
+
+    cmake -G "Visual Studio 15 Win64" C:\projects\x265\stable\source -DENABLE_SHARED=OFF -DSTATIC_LINK_CRT=ON -DENABLE_CLI=ON -DHIGH_BIT_DEPTH=ON -DMAIN12=ON
+build:
+  project: ../Yuuki/8bit/x265.sln
+  verbosity: minimal
+after_build:
+- cmd: >-
+    call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat"
+
+    mkdir C:\projects\x265\builds\Yuuki_x64
+
+    move /y C:\projects\x265\Yuuki\8bit\Release\x265.exe C:\projects\x265\builds\Yuuki_x64\x265-8bit.exe
+
+    cd C:\projects\x265\Yuuki\10bit
+
+    MSBuild /property:Configuration="Release" x265.sln
+
+    move /y C:\projects\x265\Yuuki\10bit\Release\x265.exe C:\projects\x265\builds\Yuuki_x64\x265-10bit.exe
+
+    cd C:\projects\x265\Yuuki\12bit
+
+    MSBuild /property:Configuration="Release" x265.sln
+
+    move /y C:\projects\x265\Yuuki\12bit\Release\x265.exe C:\projects\x265\builds\Yuuki_x64\x265-12bit.exe
+
+    cd C:\projects\x265\builds
+
+    echo %date% %time% > BuildTime.txt
+
+    cd ..
+
+    move /y builds stable\
+test: off
+artifacts:
+- path: builds
+  name: x265-Yuuki-Windows-x64
+  type: WebDeployPackage
+deploy: off

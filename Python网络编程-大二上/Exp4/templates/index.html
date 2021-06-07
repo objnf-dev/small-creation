@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>单词查询</title>
+    </head>
+
+    <body>
+        <h1 style="text-align: center;">英语单词释义查询</h1>
+        <p style="text-align: center;">
+            通过<a href="http://dict.cn">dict.cn</a>网站查询英文单词的常见释义。 
+        </p>
+        <br />
+        <h3 style="text-align: center;">查询</h3>
+        <form style="text-align: center;" method="POST">
+            请输入需要查询的单词：<br />
+            <input type="text" name="word" value="example">
+            <br /> <br />
+            <input type="submit" value="提交">
+        </form>
+        {% if explain_data %}
+            <br />
+            <h3 style="text-align: center;">结果</h3>
+            <p style="text-align: center;">
+                <strong>{{ explain_data | safe }}</strong>
+            </p>
+        {% endif %}
+    </body>
+</html>

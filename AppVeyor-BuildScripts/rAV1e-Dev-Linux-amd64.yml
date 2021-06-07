@@ -1,0 +1,41 @@
+version: rav1e-linux-{build}
+branches:
+  only:
+  - master
+image: Ubuntu1804
+clone_folder: /home/appveyor/projects/rav1e
+install:
+- sh: >-
+    sudo apt-get update
+
+    wget https://static.rust-lang.org/rustup/dist/x86_64-unknown-linux-gnu/rustup-init
+
+    chmod +x ./rustup-init
+
+    ./rustup-init --default-toolchain=nightly -y
+
+    source $HOME/.cargo/env
+
+    sudo apt install -y perl nasm cmake clang pkg-config gcc g++
+build_script:
+- sh: >-
+    git submodule update --init
+
+    cargo build --release
+
+    mkdir release
+
+    cd release
+
+    mkdir $(uname -r)
+
+    cd $(uname -r)
+
+    mv ../../target/release/rav1e .
+
+    date > BuildTime
+test: off
+artifacts:
+- path: release
+  name: rav1e-linux
+  type: WebDeployPackage
