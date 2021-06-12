@@ -6,7 +6,7 @@ services:
     container_name: nginx
     restart: always
     image: nginx:alpine
-    ports: 
+    ports:
       - "80:80"
     volumes:
       - "/root/blog:/usr/share/nginx/html:ro"
@@ -44,6 +44,9 @@ services:
   watchtower:
     container_name: watchtower
     image: containrrr/watchtower
+    restart: always
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 30
+    command: --interval 30 --cleanup
+    ports:
+     - "8080:8080"

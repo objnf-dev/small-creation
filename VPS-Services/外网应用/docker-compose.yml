@@ -92,7 +92,7 @@ services:
       PHOTOPRISM_DATABASE_PASSWORD:
       PHOTOPRISM_SITE_URL: "http://localhost:2342/"
       PHOTOPRISM_SITE_TITLE: "PhotoPrism"
-      PHOTOPRISM_SITE_CAPTION: 
+      PHOTOPRISM_SITE_CAPTION:
       PHOTOPRISM_SITE_DESCRIPTION: ""
       PHOTOPRISM_SITE_AUTHOR: ""
     volumes:
@@ -108,6 +108,9 @@ services:
   watchtower:
     container_name: watchtower
     image: containrrr/watchtower
+    restart: always
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 30
+    command: --interval 30 --cleanup
+    ports:
+     - "8080:8080"
