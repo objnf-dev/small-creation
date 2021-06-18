@@ -174,7 +174,7 @@ hyperframe==6.0.1
 hyperlink==21.0.0
 icalendar==4.0.7
 idna==2.10
-impacket==0.9.22
+impacket==0.9.23
 importlib-metadata==4.0.1
 incremental==21.3.0
 inflection==0.5.1
