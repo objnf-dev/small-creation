@@ -41,6 +41,34 @@ services:
     ports:
       - "9090:9090"
 
+  hedgedata:
+      container_name: hedgedata
+      image: postgres:alpine
+      restart: always
+      volumes:
+        - "/root/hedgedoc/database:/var/lib/postgresql/data"
+      environment:
+        - "POSTGRES_USER=hedgedoc"
+        - "POSTGRES_PASSWORD="
+        - "POSTGRES_DB=hedgedoc"
+
+  hedgedoc:
+      container_name: hedgedoc
+      image: quay.io/hedgedoc/hedgedoc:alpine
+      restart: always
+      volumes:
+        - "/root/hedgedoc/upload:/hedgedoc/public/uploads"
+      environment:
+        - "CMD_DB_URL=postgres://hedgedoc:@hedgedata:5432/hedgedoc"
+        - "CMD_DOMAIN="
+        - "CMD_PORT=81"
+        - "CMD_ALLOW_EMAIL_REGISTER=false"
+        - "CMD_URL_ADDPORT=true"
+      ports:
+        - "81:81"
+      depends_on:
+        - hedgedata
+
   watchtower:
     container_name: watchtower
     image: containrrr/watchtower
