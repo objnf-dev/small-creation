@@ -6,8 +6,6 @@
 
 **Appveyor** 包含了在 Appveyor 持续集成平台上托管的一些项目的构建脚本。 
 
-**c9.io-docker** 是 c9.io 云端 IDE 的 Docker 镜像构建文件。不得不说搭建私有 Web IDE 然后联机编程+调试感觉真的爽，可惜 c9.io 已经停止更新了。 
-
 **Licenses** 是收集的一些协议（纯文本），可以直接拿来放到 repo 里面，很是方便。
 
 **VapourSynth&AviSynth-Script** 是我在学压制的时候自己做的练习，尽量多加注释，这样也方便复习。 
