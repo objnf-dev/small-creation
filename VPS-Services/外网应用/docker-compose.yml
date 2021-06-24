@@ -10,8 +10,8 @@ services:
     volumes:
       - /root/rssreader:/var/www/FreshRSS/data
     environment:
-      - CRON_MIN=*/20
-      - TZ=Asia/Shanghai
+      CRON_MIN: "*/20"
+      TZ: "Asia/Shanghai"
 
   rsshub:
     container_name: rsshub
@@ -20,12 +20,12 @@ services:
     ports:
     - 1200:1200
     environment:
-      NODE_ENV: production
-      CACHE_TYPE: redis
-      REDIS_URL: redis://db.redis:6379/
-      PUPPETEER_WS_ENDPOINT: ws://service.browserless:3000
-      REQUEST_RETRY: 5
-      PIXIV_REFRESHTOKEN:
+      NODE_ENV: "production"
+      CACHE_TYPE: "redis"
+      REDIS_URL: "redis://db.redis:6379/"
+      PUPPETEER_WS_ENDPOINT: "ws://service.browserless:3000"
+      REQUEST_RETRY: "5"
+      PIXIV_REFRESHTOKEN: ""
     depends_on:
     - redis
     - browserless
@@ -53,12 +53,12 @@ services:
 
   postgres:
     container_name: postgres
-    image: postgres:alpine
+    image: postgres:13-alpine
     restart: always
     environment:
-      POSTGRES_DB:
-      POSTGRES_USER:
-      POSTGRES_PASSWORD:
+      POSTGRES_DB: "photoprism"
+      POSTGRES_USER: "photoprism"
+      POSTGRES_PASSWORD: ""
     volumes:
       - /root/postgres:/var/lib/postgresql/data
 
@@ -72,7 +72,7 @@ services:
     ports:
       - '82:2342'
     environment:
-      PHOTOPRISM_ADMIN_PASSWORD:
+      PHOTOPRISM_ADMIN_PASSWORD: ""
       PHOTOPRISM_ORIGINALS_LIMIT: 1000               # File size limit for originals in MB (increase for high-res video)
       PHOTOPRISM_HTTP_COMPRESSION: "gzip"
       PHOTOPRISM_DEBUG: "false"
@@ -87,12 +87,12 @@ services:
       PHOTOPRISM_UPLOAD_NSFW: "true"
       PHOTOPRISM_DATABASE_DRIVER: "postgres"
       PHOTOPRISM_DATABASE_SERVER: "postgres:5432"
-      PHOTOPRISM_DATABASE_NAME:
-      PHOTOPRISM_DATABASE_USER:
-      PHOTOPRISM_DATABASE_PASSWORD:
+      PHOTOPRISM_DATABASE_NAME: "photoprism"
+      PHOTOPRISM_DATABASE_USER: "photoprism"
+      PHOTOPRISM_DATABASE_PASSWORD: ""
       PHOTOPRISM_SITE_URL: "http://localhost:2342/"
       PHOTOPRISM_SITE_TITLE: "PhotoPrism"
-      PHOTOPRISM_SITE_CAPTION:
+      PHOTOPRISM_SITE_CAPTION: ""
       PHOTOPRISM_SITE_DESCRIPTION: ""
       PHOTOPRISM_SITE_AUTHOR: ""
     volumes:
@@ -102,8 +102,53 @@ services:
       # - "/mnt/Friends:/photoprism/originals/Friends"  # [folder_2]:/photoprism/originals/[folder_2]
       # Permanent storage for settings, index & sidecar files (DON'T REMOVE):
       - "/root/photoprism/storage:/photoprism/storage"
-    links:
+    depends_on:
       - postgres
+
+  # 升级需要处理数据库
+  wallabag:
+    container_name: wallabag
+    image: wallabag/wallabag:2.4.2
+    restart: always
+    labels:
+      com.centurylinklabs.watchtower.enable: true
+    environment:
+      POSTGRES_PASSWORD: ""
+      SYMFONY__ENV__DATABASE_DRIVER: "pdo_pgsql"
+      SYMFONY__ENV__DATABASE_HOST: "postgres_wallabag"
+      SYMFONY__ENV__DATABASE_PORT: "5432"
+      SYMFONY__ENV__DATABASE_NAME: "wallabag"
+      SYMFONY__ENV__DATABASE_USER: "wallabag"
+      SYMFONY__ENV__DATABASE_PASSWORD: ""
+      SYMFONY__ENV__MAILER_HOST: "127.0.0.1"
+      SYMFONY__ENV__MAILER_USER: "~"
+      SYMFONY__ENV__MAILER_PASSWORD: "~"
+      SYMFONY__ENV__FROM_EMAIL: "wallabag@example.com"
+      SYMFONY__ENV__DOMAIN_NAME: ""
+      SYMFONY__ENV__REDIS_HOST: "redis_wallabag"
+    ports:
+      - "83:80"
+    volumes:
+      - "/root/wallabag/images:/var/www/wallabag/web/assets/images"
+    depends_on:
+      - postgres_wallabag
+      - redis_wallabag
+
+  postgres_wallabag:
+    container_name: postgres_wallabag
+    image: postgres:13-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: "wallabag"
+      POSTGRES_USER: "wallabag"
+      POSTGRES_PASSWORD: ""
+    volumes:
+      - "/root/wallabag/db:/var/lib/postgresql/data"
+
+  redis_wallabag:
+    container_name: redis_wallabag
+    image: redis
+    restart: always
 
   watchtower:
     container_name: watchtower
