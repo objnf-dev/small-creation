@@ -1,4 +1,7 @@
 version: VSEdit-Linux-{build}
+branches:
+  only:
+  - master
 image: Ubuntu1804
 clone_folder: /home/appveyor/projects
 init:
@@ -8,7 +11,7 @@ init:
     sudo apt-get install -y qt5-default libqt5websockets5-dev nasm
 clone_script:
 - sh: >-
-    git clone -b r19 https://zhouweitong3@bitbucket.org/mystery_keeper/vapoursynth-editor.git /home/appveyor/projects/vsedit
+    git clone https://zhouweitong3@bitbucket.org/mystery_keeper/vapoursynth-editor.git /home/appveyor/projects/vsedit
 
     git clone https://github.com/vapoursynth/vapoursynth.git /home/appveyor/projects/vapoursynth
 install:
