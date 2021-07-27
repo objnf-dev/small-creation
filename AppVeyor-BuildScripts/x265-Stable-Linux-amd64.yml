@@ -8,8 +8,6 @@ init:
     sudo apt-get update
 
     sudo apt-get install -y nasm
-clone_script:
-- sh: hg clone -b stable https://zhouweitong3@bitbucket.org/multicoreware/x265 /home/appveyor/projects/x265/stable
 install:
 - sh: >-
     mkdir /home/appveyor/projects/x265/8bit
