@@ -1,0 +1,39 @@
+version: '{build}'
+branches:
+  only:
+  - master
+skip_tags: true
+image: Visual Studio 2019
+platform: x64
+clone_depth: 1
+environment:
+  MONOLITHIC: yes
+install:
+- cmd: >-
+    set MSYS_SH=C:\msys64\usr\bin\sh.exe
+
+    set MSYSTEM=MINGW64
+
+    set OPENSSL=OpenSSL-v111
+
+    set OPENSSL_DIR=/c/%OPENSSL%-win64
+
+    C:\%OPENSSL%-win64\bin\openssl.exe version -a
+build_script:
+- cmd: >-
+    %MSYS_SH% --login -c ". /etc/profile && cd $APPVEYOR_BUILD_FOLDER && mkdir bin"
+
+    %MSYS_SH% --login -c ". /etc/profile && cd $APPVEYOR_BUILD_FOLDER && echo ${APPVEYOR_BUILD_FOLDER}/bin"
+
+    %MSYS_SH% --login -c ". /etc/profile && cd $APPVEYOR_BUILD_FOLDER && ./autogen.sh"
+
+    %MSYS_SH% --login -c ". /etc/profile && cd $APPVEYOR_BUILD_FOLDER && CC=x86_64-w64-mingw32-gcc CFLAGS='-g -O2 -Wall -Wno-format -Wno-format-security -Wno-pointer-sign -I/c/OpenSSL-v111-win64/include -mno-ms-bitfields'  ./configure --host=x86_64-w64-mingw32 --disable-defaults --enable-svc --enable-ikev2 --enable-ikev1 --enable-static --enable-nonce --enable-constraints --enable-revocation --enable-pem --enable-pkcs1 --enable-pkcs8 --enable-pkcs11 --enable-x509 --enable-pubkey --enable-sha1 --enable-md5 --enable-sha2 --enable-aes --enable-rc2 --enable-gcm --enable-hmac --enable-acert --enable-eap-aka --enable-eap-sim --enable-eap-peap --enable-eap-tnc --enable-eap-ttls --enable-eap-tls --enable-eap-md5 --enable-eap-mschapv2 --enable-eap-identity --enable-updown --enable-ext-auth --enable-libipsec --enable-tnccs-20 --enable-imc-attestation --enable-imv-attestation --enable-imc-os --enable-imv-os --enable-tnc-imv --enable-tnc-imc --enable-pki --enable-swanctl --enable-socket-win --enable-kernel-iph --enable-kernel-wfp --enable-winhttp --enable-openssl --enable-silent-rules --enable-monolithic --host=x86_64-w64-mingw32 --enable-swanctl --with-swanctldir=swanctl --with-strongswan-conf=strongswan.conf --prefix=/c/projects/strongswan/bin"
+
+    %MSYS_SH% --login -c ". /etc/profile && cd $APPVEYOR_BUILD_FOLDER && make -j4"
+
+    %MSYS_SH% --login -c ". /etc/profile && cd $APPVEYOR_BUILD_FOLDER && make install"
+artifacts:
+- path: bin
+  name: strongswan-bin
+  type: WebDeployPackage
+deploy: off
