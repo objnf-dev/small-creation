@@ -214,7 +214,7 @@ pcodedmp==1.2.6
 pdf417as-str==0.4.1
 pefile==2021.5.24
 pickleshare==0.7.5
-Pillow==8.3.1
+Pillow==8.3.2
 Pint==0.17
 pip-conflict-checker==0.6.0
 pluggy==0.13.1
