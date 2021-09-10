@@ -327,7 +327,7 @@ sourceinspect==0.0.4
 spark-parser==1.8.9
 SQLAlchemy==1.4.22
 sqlalchemy-migrate==0.13.0
-sqlparse==0.4.1
+sqlparse==0.4.2
 stevedore==3.3.0
 Sublist3r==1.0
 sympy==1.8
