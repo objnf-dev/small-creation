@@ -228,7 +228,7 @@ mercurial==5.8
 minidump==0.0.17
 minikerberos==0.2.11
 mistune==0.8.4
-mitmproxy==6.0.2
+mitmproxy==7.0.3
 mock==4.0.3
 more-itertools==8.7.0
 mpmath==1.2.1
