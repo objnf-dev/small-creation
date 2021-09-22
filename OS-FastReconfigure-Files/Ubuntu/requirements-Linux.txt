@@ -92,7 +92,7 @@ dicttoxml==1.7.4
 dill==0.3.3
 distlib==0.3.1
 distro==1.5.0
-Django==3.2.2
+Django==3.2.5
 dlx==1.0.4
 dnslib==0.9.16
 dnspython==2.1.0
