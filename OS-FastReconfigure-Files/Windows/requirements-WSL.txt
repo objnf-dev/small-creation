@@ -160,7 +160,7 @@ rpyc==5.0.1
 ruamel-yaml==0.15.87
 ruamel.yaml.clib==0.2.2
 scipy==1.6.3
-Scrapy==2.5.0
+Scrapy==2.5.1
 Send2Trash==1.5.0
 service-identity==21.1.0
 six==1.16.0
