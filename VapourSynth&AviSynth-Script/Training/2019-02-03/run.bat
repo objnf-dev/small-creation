@@ -1,0 +1,3 @@
+@echo off
+"D:\PythonENV\VapourSynth64Portable\VapourSynth64\VSPipe.exe" x264resize.vpy - --y4m | "D:\PythonENV\VapourSynth64Portable\Tools\x264_x265-x64\x264_tmod\FFmpeg\x264_64_tMod-8bit-all.exe" --demuxer y4m --threads 10 --preset veryslow --crf 18 --deblock -1:-1 --keyint 480 --min-keyint 1 --bframes 8 --b-adapt 2 --ref 8 --ipratio 1.35 --pbratio 1.25 --qcomp 0.8 --rc-lookahead 80 --aq-mode 3 --aq-strength 0.8 --merange 20 --me tesa --subme 10 --trellis 2 --psy-rd 0.70:0.15 --output "output-default.h264" --log-file "output-default.log" -
+pause

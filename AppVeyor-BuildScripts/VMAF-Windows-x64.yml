@@ -1,0 +1,17 @@
+version: VMAF-{build}
+image: Visual Studio 2017
+configuration: Release
+platform: x64
+build:
+  project: vmaf.sln
+  verbosity: minimal
+after_build:
+- cmd: >-
+    echo %date% %time% > x64\Release\BuildTime.txt
+
+    7z a vmaf-win-x64.zip x64\Release\*.*
+test: off
+artifacts:
+- path: vmaf-win-x64.zip
+  name: VMAF-Windows-x64
+deploy: off

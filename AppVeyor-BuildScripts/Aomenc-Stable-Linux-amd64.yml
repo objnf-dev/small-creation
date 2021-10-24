@@ -1,0 +1,40 @@
+version: aom-linux-{branch}-{build}
+branches:
+  only:
+  - av1-normative
+image: Ubuntu1604
+clone_folder: /home/appveyor/projects/aom
+build_script:
+- sh: >-
+    sudo apt-get update
+
+    sudo apt-get install -y nasm
+
+    cd ..
+
+    mkdir aom_build
+
+    cd aom_build
+
+    cmake ../aom/ -DCONFIG_ACCOUNTING=1 -DCONFIG_INTERNAL_STATS=1 -DCONFIG_COLLECT_PARTITION_STATS=1 -DCONFIG_COLLECT_COMPONENT_TIMING=1 -DENABLE_DOCS=OFF
+
+    make
+
+    cd ../aom
+
+    mkdir aom_final
+
+    mkdir aom_final/$(uname -r)-x64
+
+    cd aom_final/$(uname -r)-x64
+
+    mv ../../../aom_build/aomdec .
+
+    mv ../../../aom_build/aomenc .
+
+    date > BuildTime
+test: off
+artifacts:
+- path: aom_final
+  name: aom-normative-linux
+deploy: off
