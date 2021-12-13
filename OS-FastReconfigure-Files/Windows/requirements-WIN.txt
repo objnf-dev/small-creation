@@ -165,7 +165,7 @@ llvmlite==0.37.0
 LnkParse3==1.2.0
 loguru==0.5.3
 lru-dict==1.1.7
-lxml==4.6.4
+lxml==4.6.5
 MarkupSafe==2.0.1
 Mathics-Scanner==1.2.4
 Mathics3==4.0.0
