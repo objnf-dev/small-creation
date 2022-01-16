@@ -1,0 +1,161 @@
+version: "3"
+
+services:
+  freshrss:
+    container_name: freshrss
+    image: freshrss/freshrss:latest
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - /root/rssreader:/var/www/FreshRSS/data
+    environment:
+      CRON_MIN: "*/20"
+      TZ: "Asia/Shanghai"
+
+  rsshub:
+    container_name: rsshub
+    image: diygod/rsshub:latest
+    restart: always
+    ports:
+    - 1200:1200
+    environment:
+      NODE_ENV: "production"
+      CACHE_TYPE: "redis"
+      REDIS_URL: "redis://db.redis:6379/"
+      PUPPETEER_WS_ENDPOINT: "ws://service.browserless:3000"
+      REQUEST_RETRY: "5"
+      PIXIV_REFRESHTOKEN: ""
+    depends_on:
+    - redis
+    - browserless
+
+  browserless:
+    container_name: browserless
+    image: browserless/chrome
+    restart: always
+
+  redis:
+    container_name: redis
+    image: redis
+    restart: always
+    volumes:
+    - /root/redis_data:/data
+
+  trilium:
+    container_name: trilium
+    image: zadam/trilium:latest
+    restart: always
+    volumes:
+      - ~/trilium-data:/home/node/trilium-data
+    ports:
+      - "81:8080"
+
+  postgres:
+    container_name: postgres
+    image: postgres:13-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: "photoprism"
+      POSTGRES_USER: "photoprism"
+      POSTGRES_PASSWORD: ""
+    volumes:
+      - /root/postgres:/var/lib/postgresql/data
+
+  photoprism:
+    container_name: photoprism
+    image: photoprism/photoprism:latest
+    restart: always
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
+    ports:
+      - '82:2342'
+    environment:
+      PHOTOPRISM_ADMIN_PASSWORD: ""
+      PHOTOPRISM_ORIGINALS_LIMIT: 1000               # File size limit for originals in MB (increase for high-res video)
+      PHOTOPRISM_HTTP_COMPRESSION: "gzip"
+      PHOTOPRISM_DEBUG: "false"
+      PHOTOPRISM_PUBLIC: "false"
+      PHOTOPRISM_READONLY: "false"
+      PHOTOPRISM_EXPERIMENTAL: "false"
+      PHOTOPRISM_DISABLE_WEBDAV: "false"
+      PHOTOPRISM_DISABLE_SETTINGS: "false"
+      PHOTOPRISM_DISABLE_TENSORFLOW: "false"
+      PHOTOPRISM_DARKTABLE_PRESETS: "false"          # Enables Darktable presets and disables concurrent RAW conversion
+      PHOTOPRISM_DETECT_NSFW: "false"
+      PHOTOPRISM_UPLOAD_NSFW: "true"
+      PHOTOPRISM_DATABASE_DRIVER: "postgres"
+      PHOTOPRISM_DATABASE_SERVER: "postgres:5432"
+      PHOTOPRISM_DATABASE_NAME: "photoprism"
+      PHOTOPRISM_DATABASE_USER: "photoprism"
+      PHOTOPRISM_DATABASE_PASSWORD: ""
+      PHOTOPRISM_SITE_URL: "http://localhost:2342/"
+      PHOTOPRISM_SITE_TITLE: "PhotoPrism"
+      PHOTOPRISM_SITE_CAPTION: ""
+      PHOTOPRISM_SITE_DESCRIPTION: ""
+      PHOTOPRISM_SITE_AUTHOR: ""
+    volumes:
+      - "/root/photoprism/Pictures:/photoprism/originals"
+      # Multiple folders can be indexed by mounting them as sub-folders of /photoprism/originals:
+      # - "/mnt/Family:/photoprism/originals/Family"    # [folder_1]:/photoprism/originals/[folder_1]
+      # - "/mnt/Friends:/photoprism/originals/Friends"  # [folder_2]:/photoprism/originals/[folder_2]
+      # Permanent storage for settings, index & sidecar files (DON'T REMOVE):
+      - "/root/photoprism/storage:/photoprism/storage"
+    depends_on:
+      - postgres
+
+  # 升级需要处理数据库
+  wallabag:
+    container_name: wallabag
+    image: wallabag/wallabag:2.4.2
+    restart: always
+    labels:
+      com.centurylinklabs.watchtower.enable: true
+    environment:
+      POSTGRES_PASSWORD: ""
+      SYMFONY__ENV__DATABASE_DRIVER: "pdo_pgsql"
+      SYMFONY__ENV__DATABASE_HOST: "postgres_wallabag"
+      SYMFONY__ENV__DATABASE_PORT: "5432"
+      SYMFONY__ENV__DATABASE_NAME: "wallabag"
+      SYMFONY__ENV__DATABASE_USER: "wallabag"
+      SYMFONY__ENV__DATABASE_PASSWORD: ""
+      SYMFONY__ENV__MAILER_HOST: "127.0.0.1"
+      SYMFONY__ENV__MAILER_USER: "~"
+      SYMFONY__ENV__MAILER_PASSWORD: "~"
+      SYMFONY__ENV__FROM_EMAIL: "wallabag@example.com"
+      SYMFONY__ENV__DOMAIN_NAME: ""
+      SYMFONY__ENV__REDIS_HOST: "redis_wallabag"
+    ports:
+      - "83:80"
+    volumes:
+      - "/root/wallabag/images:/var/www/wallabag/web/assets/images"
+    depends_on:
+      - postgres_wallabag
+      - redis_wallabag
+
+  postgres_wallabag:
+    container_name: postgres_wallabag
+    image: postgres:13-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: "wallabag"
+      POSTGRES_USER: "wallabag"
+      POSTGRES_PASSWORD: ""
+    volumes:
+      - "/root/wallabag/db:/var/lib/postgresql/data"
+
+  redis_wallabag:
+    container_name: redis_wallabag
+    image: redis
+    restart: always
+
+  watchtower:
+    container_name: watchtower
+    image: containrrr/watchtower
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 30 --cleanup
+    ports:
+     - "8080:8080"

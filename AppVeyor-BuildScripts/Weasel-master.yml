@@ -1,0 +1,54 @@
+version: '{branch} build {build}'
+image: Visual Studio 2017
+init:
+- cmd: >-
+    git --version
+
+    git config --global core.autocrlf true
+clone_script:
+- cmd: >-
+    git clone --recursive https://github.com/rime/weasel.git
+
+    cd weasel\
+
+    git submodule update --remote --recursive
+environment:
+  BOOST_ROOT: C:\Libraries\boost_1_69_0
+  CMAKE_GENERATOR: '"Visual Studio 15 2017"'
+  PLATFORM_TOOLSET: v141_xp
+install:
+- cmd: >-
+    .\appveyor_build_boost.bat
+
+    set rime_version=1.7.3
+
+    set rime_variant=rime-with-plugins
+
+    set download_archive=%rime_variant%-%rime_version%-win32.zip
+
+    appveyor DownloadFile https://github.com/rime/librime/releases/download/%rime_version%/%download_archive%
+
+    7z x %download_archive% * -y -olibrime
+
+    copy /Y librime\dist\include\rime_*.h include\
+
+    copy /Y librime\dist\lib\rime.lib lib\
+
+    copy /Y librime\dist\lib\rime.dll output\
+
+    if not exist output\data\opencc mkdir output\data\opencc
+
+    copy /Y librime\thirdparty\share\opencc\*.* output\data\opencc\
+cache:
+- boost.cached -> appveyor_build_boost.bat
+- C:\Libraries\boost_1_69_0\stage -> appveyor_build_boost.bat
+- C:\Libraries\boost_1_69_0\stage_x64 -> appveyor_build_boost.bat
+build_script:
+- cmd: >-
+    if "%APPVEYOR_REPO_TAG%" == "false" set WEASEL_BUILD=%APPVEYOR_BUILD_NUMBER%
+
+    .\build.bat data hant weasel installer
+artifacts:
+- path: weasel\output
+  name: Weasel
+  type: WebDeployPackage

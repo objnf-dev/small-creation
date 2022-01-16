@@ -1,0 +1,80 @@
+version: "3.8"
+
+services:
+
+  nginx:
+    container_name: nginx
+    restart: always
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - "/root/blog:/usr/share/nginx/html:ro"
+
+  cloudreve:
+    container_name: cloudreve
+    image: xavierniu/cloudreve:latest
+    restart: always
+    volumes:
+      - "/root/cloudreve/uploads:/cloudreve/uploads"
+      - "/root/cloudreve/conf.ini:/cloudreve/conf.ini"
+      - "/root/cloudreve/cloudreve.db:/cloudreve/cloudreve.db"
+    ports:
+      - "82:5212"
+    environment:
+      TZ: Asia/Shanghai
+
+  nps:
+    container_name: nps
+    image: ffdfgdfg/nps:latest
+    restart: always
+    volumes:
+      - "/root/nps:/conf"
+    network_mode: host
+
+  linkding:
+    container_name: linkding
+    image: sissbruecker/linkding:latest
+    restart: always
+    volumes:
+      - "/root/linkding:/etc/linkding/data"
+    ports:
+      - "9090:9090"
+
+  hedgedata:
+      container_name: hedgedata
+      image: postgres:alpine
+      restart: always
+      volumes:
+        - "/root/hedgedoc/database:/var/lib/postgresql/data"
+      environment:
+        - "POSTGRES_USER=hedgedoc"
+        - "POSTGRES_PASSWORD="
+        - "POSTGRES_DB=hedgedoc"
+
+  hedgedoc:
+      container_name: hedgedoc
+      image: quay.io/hedgedoc/hedgedoc:alpine
+      restart: always
+      volumes:
+        - "/root/hedgedoc/upload:/hedgedoc/public/uploads"
+      environment:
+        - "CMD_DB_URL=postgres://hedgedoc:@hedgedata:5432/hedgedoc"
+        - "CMD_DOMAIN="
+        - "CMD_PORT=81"
+        - "CMD_ALLOW_EMAIL_REGISTER=false"
+        - "CMD_URL_ADDPORT=true"
+      ports:
+        - "81:81"
+      depends_on:
+        - hedgedata
+
+  watchtower:
+    container_name: watchtower
+    image: containrrr/watchtower
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 30 --cleanup
+    ports:
+     - "8080:8080"

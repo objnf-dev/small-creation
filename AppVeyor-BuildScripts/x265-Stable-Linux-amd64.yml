@@ -1,0 +1,64 @@
+version: x265-{build}
+image: Ubuntu1804
+configuration: Release
+platform: x64
+clone_folder: /home/appveyor/projects/x265/stable
+init:
+- sh: >-
+    sudo apt-get update
+
+    sudo apt-get install -y nasm
+install:
+- sh: >-
+    mkdir /home/appveyor/projects/x265/8bit
+
+    cd /home/appveyor/projects/x265/8bit
+
+    cmake -G "Unix Makefiles" /home/appveyor/projects/x265/stable/source -DENABLE_SHARED=OFF -DSTATIC_LINK_CRT=ON -DENABLE_CLI=ON
+
+    mkdir /home/appveyor/projects/x265/10bit
+
+    cd /home/appveyor/projects/x265/10bit
+
+    cmake -G "Unix Makefiles" /home/appveyor/projects/x265/stable/source -DENABLE_SHARED=OFF -DSTATIC_LINK_CRT=ON -DENABLE_CLI=ON -DHIGH_BIT_DEPTH=ON -DMAIN12=OFF
+
+    mkdir /home/appveyor/projects/x265/12bit
+
+    cd /home/appveyor/projects/x265/12bit
+
+    cmake -G "Unix Makefiles" /home/appveyor/projects/x265/stable/source -DENABLE_SHARED=OFF -DSTATIC_LINK_CRT=ON -DENABLE_CLI=ON -DHIGH_BIT_DEPTH=ON -DMAIN12=ON
+build_script:
+- sh: >-
+    cd /home/appveyor/projects/x265/8bit
+
+    make
+
+    mkdir -p /home/appveyor/projects/x265/builds/x64/
+
+    mv -f /home/appveyor/projects/x265/8bit/x265 /home/appveyor/projects/x265/builds/x64/x265-8bit
+
+    cd /home/appveyor/projects/x265/10bit
+
+    make
+
+    mv -f /home/appveyor/projects/x265/10bit/x265 /home/appveyor/projects/x265/builds/x64/x265-10bit
+
+    cd /home/appveyor/projects/x265/12bit
+
+    make
+
+    mv -f /home/appveyor/projects/x265/12bit/x265 /home/appveyor/projects/x265/builds/x64/x265-12bit
+
+    cd /home/appveyor/projects/x265/builds
+
+    date > BuildTime
+
+    cd ..
+
+    mv -f builds stable/
+test: off
+artifacts:
+- path: builds
+  name: x265-Linux-amd64
+  type: WebDeployPackage
+deploy: off
