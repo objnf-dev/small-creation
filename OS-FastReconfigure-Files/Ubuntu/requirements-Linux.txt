@@ -166,7 +166,7 @@ hiredis==2.0.0
 hpack==4.0.0
 html2text==2020.1.16
 html5lib==1.1
-httpie==2.4.0
+httpie==3.1.0
 httplib2==0.19.1
 humanize==3.5.0
 hupper==1.10.2
