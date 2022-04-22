@@ -73,7 +73,7 @@ decorator==5.1.1
 defusedxml==0.7.1
 Deprecated==1.2.13
 dill==0.3.4
-Django==4.0.1
+Django==4.0.4
 dlx==1.0.4
 dnspython==2.2.0
 docopt==0.6.2
