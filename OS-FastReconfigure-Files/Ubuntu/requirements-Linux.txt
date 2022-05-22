@@ -264,7 +264,7 @@ ospd-openvas==21.4.0
 packaging==20.9
 pandas==1.2.4
 pandocfilters==1.4.3
-paramiko==2.7.2
+paramiko==2.10.1
 parsedatetime==2.6
 parso==0.8.2
 passlib==1.7.4
