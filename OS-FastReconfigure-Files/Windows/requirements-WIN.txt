@@ -227,7 +227,7 @@ pcodedmp==1.2.6
 pdf417as-str==0.4.1
 pefile==2021.9.3
 pickleshare==0.7.5
-Pillow==9.0.0
+Pillow==9.0.1
 Pint==0.18
 pip-conflict-checker==0.6.0
 platformdirs==2.4.1
