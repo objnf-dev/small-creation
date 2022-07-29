@@ -227,7 +227,7 @@ mechanize==0.4.5
 mercurial==5.8
 minidump==0.0.17
 minikerberos==0.2.11
-mistune==0.8.4
+mistune==2.0.3
 mitmproxy==6.0.2
 mock==4.0.3
 more-itertools==8.7.0
