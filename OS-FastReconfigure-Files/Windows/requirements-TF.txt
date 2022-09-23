@@ -83,7 +83,7 @@ pip-conflict-checker==0.6.0
 platformdirs==2.5.2
 prometheus-client==0.14.1
 prompt-toolkit==3.0.29
-protobuf==3.20.1
+protobuf==3.20.2
 psutil==5.9.1
 pure-eval==0.2.2
 pyasn1==0.4.8
