@@ -456,7 +456,7 @@ tox==3.23.1
 tqdm==4.60.0
 traitlets==5.0.5
 translationstring==1.4
-Twisted==21.2.0
+Twisted==22.10.0
 txaio==21.2.1
 typing-extensions==3.7.4.3
 tzlocal==2.1
