@@ -111,7 +111,7 @@ parso==0.8.3
 pbr==5.9.0
 pefile==2021.9.3
 pickleshare==0.7.5
-Pillow==9.1.1
+Pillow==9.3.0
 pip-conflict-checker==0.6.0
 platformdirs==2.5.2
 pluggy==1.0.0
