@@ -1,0 +1,15 @@
+{% for item in info %}
+    <tr>
+        <td> {{ info[item][0] }} </td>
+        <td> {{ info[item][1] }} </td>
+        <td> {{ info[item][2] }} </td>
+        <td> {{ info[item][3] }} </td>
+        <td> {{ info[item][4] }} </td>
+        <td> {{ info[item][6] }} </td>
+        <td> {{ info[item][5] }} </td>
+    </tr>
+{% else %}
+    <tr>
+        <td colspan="7" style="text-align: center;">无结果</td>
+    </tr>
+{% endfor %}

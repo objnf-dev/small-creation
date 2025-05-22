@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <title>车票管理系统 - 18271241</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/static/bootstrap.min.css" rel="stylesheet"/>
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="/static/starter-template.css" rel="stylesheet"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">车票管理系统</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsDefault"
+                aria-controls="navbarsDefault" aria-expanded="false" aria-label="导航器"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarsDefault">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item active"><a class="nav-link" aria-current="page" href="/">查询</a></li>
+                <li class="nav-item"><a class="nav-link" href="/order" tabindex="-1">订票</a></li>
+                <li class="nav-item"><a class="nav-link" href="/refund" tabindex="-1">订单编辑</a></li>
+                {% if session["is_admin"] %}
+                    <li class="nav-item"><a class="nav-link" href="/admin" tabindex="-1">控制台</a></li>
+                {% endif %}
+            </ul>
+            <span class="navbar-text">
+        {% if session["is_admin"] %}
+            管理员
+        {% else %}
+            用户
+        {% endif %}
+                {{ session["user"] }}
+            &nbsp;&nbsp;
+            </span>
+            <button class="btn btn-outline-success" onclick="(function() { window.location.href = '/logout';})();">
+                退出登录
+            </button>
+        </div>
+    </div>
+</nav>
+<main class="container">
+    <div class="modal fade" id="orderModal" tabindex="-1">
+        <div class="toast-container position-absolute top-10 end-0 p-3">
+            <div id="valueEmptyToast" class="toast d-flex align-items-center text-white bg-danger border-0">
+                <div class="toast-body">
+                    请选择一个选项。
+                </div>
+                <button type="button" class="btn-close btn-close-white ms-auto me-2" data-bs-dismiss="toast"></button>
+            </div>
+            <div id="errorToast" class="toast d-flex align-items-center text-white bg-danger border-0">
+                <div class="toast-body">
+                    操作出错，请重试。
+                </div>
+                <button type="button" class="btn-close btn-close-white ms-auto me-2" data-bs-dismiss="toast"></button>
+            </div>
+            <div id="notAdminToast" class="toast d-flex align-items-center text-white bg-danger border-0">
+                <div class="toast-body">
+                    发生错误。您可能不是团体创建者。
+                </div>
+                <button type="button" class="btn-close btn-close-white ms-auto me-2" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">编辑订单</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3 w-75" style="margin: auto;">
+                        <select class="form-select" id="selectForm">
+                            <option selected value="">请选择</option>
+                            <option value="1" id="selectDel" style="display: none;">删除订单并退款</option>
+                            <option value="2" id="selectGroupDel" style="display: none;">删除团体订单并退款</option>
+                            <option value="3" id="selectPay" style="display: none;">支付订单</option>
+                            <option value="4" id="selectGroupPay" style="display: none">支付团体订单</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" onclick="submitOpt()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">订单号</th>
+            <th scope="col">车次</th>
+            <th scope="col">是否团体购票</th>
+            <th scope="col">团队号</th>
+            <th scope="col">价格</th>
+            <th scope="col">付款状态</th>
+            <th scope="col">下单时间</th>
+            <th scope="col">编辑</th>
+        </tr>
+        </thead>
+        <tbody id="queryRes">
+
+        </tbody>
+    </table>
+</main>
+<!-- /.container -->
+<script src="/static/bootstrap.bundle.min.js"></script>
+</body>
+<script>
+    let orderID = "";
+
+    function runQuery() {
+        window.fetch("/api/query_order", {
+            method: "GET",
+            credentials: "same-origin"
+        }).then(function (res) {
+            if (!res.ok) {
+                let toast = new bootstrap.Toast(document.getElementById("errorToast"));
+                toast.show();
+                return ""
+            } else {
+                return res.text()
+            }
+        }).then(function (data) {
+            if (data) {
+                let table = document.getElementById("queryRes");
+                table.innerHTML = data;
+            }
+        }).then(function () {
+            modifyListButton();
+        })
+    }
+
+    function modifyListButton() {
+        let buttonList = [].slice.call(document.querySelectorAll(".listButton"))
+        for (let i = 0; i < buttonList.length; i++) {
+            buttonList[i].setAttribute("data-bs-toggle", "modal");
+            buttonList[i].setAttribute("data-bs-target", "#orderModal");
+        }
+    }
+
+    function listButtonClicked(ele) {
+        let childList = ele.parentNode.parentNode.children;
+        orderID = childList[0].innerText;
+        if (childList[2].innerText === "否") {
+            document.getElementById("selectDel").style.display = "";
+        }
+        if (childList[2].innerText === "是") {
+            document.getElementById("selectGroupDel").style.display = "";
+        }
+        if (childList[2].innerText === "否" && childList[5].innerText === "未付款") {
+            document.getElementById("selectPay").style.display = "";
+        }
+        if (childList[2].innerText === "是" && childList[5].innerText === "未付款") {
+            document.getElementById("selectGroupPay").style.display = "";
+        }
+    }
+
+    function submitOpt() {
+        let option = document.getElementById("selectForm").value;
+        let url = ""
+        let toastName = ""
+
+        if (option === "") {
+            let toast = new bootstrap.Toast(document.getElementById("valueEmptyToast"));
+            toast.show();
+        } else if (option === "1") {
+            url = "/api/refund";
+            toastName = "errorToast";
+
+        } else if (option === "2") {
+            url = "/api/group_refund";
+            toastName = "notAdminToast";
+        } else if (option === "3") {
+            url = "/api/pay";
+            toastName = "errorToast";
+        } else if (option === "4") {
+            url = "/api/group_pay";
+            toastName = "notAdminToast";
+        }
+
+        let formData = new URLSearchParams();
+        formData.append("oid", orderID);
+        window.fetch(url, {
+            method: "POST",
+            credentials: "same-origin",
+            redirect: "follow",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: formData
+        }).then(function (res) {
+            if (!res.ok) {
+                let toast = new bootstrap.Toast(document.getElementById(toastName));
+                toast.show();
+            } else {
+                let modal = bootstrap.Modal.getInstance(document.getElementById("orderModal"));
+                modal.hide();
+                setTimeout(function () {
+                    location.reload();
+                }, 500);
+            }
+        });
+    }
+
+    runQuery();
+</script>
+
+</html>

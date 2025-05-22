@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <title>登录・车票管理系统</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/static/bootstrap.min.css" rel="stylesheet"/>
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="/static/signin.css" rel="stylesheet"/>
+</head>
+<body class="text-center">
+<main class="form-signin">
+    <h1> 车票管理系统 </h1>
+    <h2 class="h3 mb-3 fw-normal">请您登录</h2>
+
+    <div id="successAlert" class="alert alert-success" role="alert" style="display: none;">
+        登录成功！
+    </div>
+
+    <div id="failedAlert" class="alert alert-danger" role="alert" style="display: none;">
+        登录失败，请重试。
+    </div>
+
+    <form id="login" action="/">
+        <div class="row gy-2">
+            <input type="text" id="inputUsername" class="form-control" placeholder="用户名" required autofocus/>
+            <input type="password" id="inputPassword" class="form-control" placeholder="密码" required/>
+            <button type="button" class="w-100 btn btn-lg btn-primary" onclick="login()">登录</button>
+        </div>
+        <p>
+            还没有帐号？
+            <a href="/reg">点击此处</a>
+            注册。
+        </p>
+        <p class="mt-5 mb-3 text-muted">18271241 周韦彤</p>
+    </form>
+</main>
+</body>
+
+<script>
+    function login () {
+        let username = document.getElementById("inputUsername").value;
+        let password = document.getElementById("inputPassword").value;
+
+        let formData = new URLSearchParams();
+        formData.append("username", username);
+        formData.append("password", password);
+
+        window.fetch("/login", {
+            method: "POST",
+            credentials: "same-origin",
+            redirect: "follow",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: formData
+        }).then(function (res) {
+            if (!res.ok) {
+                let loginAlert = document.getElementById("failedAlert");
+                loginAlert.style.display = "";
+            }
+            else {
+                let loginAlert = document.getElementById("failedAlert");
+                loginAlert.style.display = "none";
+                loginAlert = document.getElementById("successAlert");
+                loginAlert.style.display = ""
+                setTimeout(function () {window.location.href = "/"}, 2000);
+            }
+        });
+    }
+</script>
+
+</html>
