@@ -14,13 +14,9 @@
 
 **Tricolour-Lovestory** 是闲来无事解包《三色绘恋》的实验。
 
-**netkeeper-openwrt** 是自己编译的闪讯 OpenWRT 插件。大端序和小端序都有。
+**Netkeeper-OpenWRT-Precompiled** 是自己编译的闪讯 OpenWRT 插件。大端序和小端序都有。
 
 **C语言程设-大一上** 是 C 语言程序设计课的结课大作业。
-
-**tengine_compile** 是编译和配置 tengine 的一个样例。
-
-**os-warmup-scripts** 是自己今后重装系统时能够直接拿过来用的配置文件。
 
 **数据结构-大一下** 是大一下学期数据结构配套实验课的代码，以及结课时大作业的代码。
 
